@@ -1,0 +1,88 @@
+{% extends 'hrms/layout.html' %}
+{% load static %}
+{% block title %} Staff Payroll | ITSC-HRMS {% endblock title %}
+      <!--  MAIN BODY START HERE -->
+          {% block content %}
+
+            <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+           <p class="lead text-center">Staffers Payroll System</p>
+            <div class="col-lg-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                 
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          
+                          <th>
+                            Image
+                          </th>
+                          <th>
+                            First name
+                          </th>
+                          <th>
+                            Last name
+                          </th>
+                          <th>
+                            Account Number
+                          </th>
+                          <th>
+                            Bank Name
+                          </th>
+                          <th>
+                            Salary
+                          </th>
+
+                           <th>
+                            Action
+                          </th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                      {% for emp in emps %}
+                        <tr>
+                          <td class="font-weight-medium">
+                            <img src="{{emp.thumb.url}}" class='img-fluid rounded-circle' alt="">
+                          </td>
+                          <td>
+                            {{emp.first_name}}
+                          </td>
+                          <td>
+                            {{emp.last_name}}
+                          </td>
+                          
+                           <td>
+                            {{emp.nuban}}
+                          </td>
+                          <td>
+                            {{emp.bank}}
+                          </td>
+                           <td>
+                            {{emp.salary}}
+                          </td>
+                           <td>
+                            <button  type='button' onclick="payWithPaystack('{{emp.salary}}','{{emp.nuban}}','{{emp.bank}}')"  class="btn btn-info">  Pay</button>
+                          </td>
+                        </tr>
+                      {% endfor %}                   
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        {% endblock content %}

@@ -1,0 +1,144 @@
+<!DOCTYPE html> 
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <link rel="stylesheet" href=" {% static "manager/assign-rating-table.css" %} ">
+</head>
+<body>
+    <div class="container">
+
+        
+        <!-- Beginning of Aside or Side Bar -->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    
+                    <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                 <a href="{% url "hrms:manager_dashboard"%}" class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3> Dashboard </h3>
+                 </a>
+               
+                 <a href=" {% url "hrms:eva_all"%} ">
+                    <span class="material-icons-sharp"> speaker_group </span>
+                    <h3> KPI Evalutation </h3>
+                 </a>
+                 <a href=" {% url "hrms:manager_report"%} ">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3> Report </h3>
+                 </a>
+           
+     
+                 <a href=" {% url "hrms:skpd_new} ">
+                    <span class="material-icons-sharp"> inventory </span>
+                    <h3> Staff SKPD </h3>
+                 </a>
+          
+            
+                 <a href=" {% url "hrms:manager_logout" %} ">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a>
+            </div>
+        </aside>
+         <!-- End of Aside or Side Bar -->
+
+      
+         <!-- End of Aside or Side Bar -->
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+              <h1> Employee's Rating </h1>
+
+              <div class="insights">
+
+                  <!-- END OF Quick details -->
+
+                
+               
+
+                  <!-- END OF EMPLOYEE ANALYTICS -->
+
+                  
+                <!-- BEGINNING OF PROJECT ANALYTICS -->
+              
+
+                  <!-- END OF PROJECT ANALYTICS -->
+              </div>
+
+              <div class="employee-quick-details-assign-rating">
+                <h2> Table </h2>
+                <table>
+                    <thead>
+                        <tr>    
+                            <!-- <th style="padding: 15px;" > MKPD </th> -->
+                            <th style="padding: 15px;" > Period </th>
+                            <th style="padding: 15px;" > Employee name </th>
+                            <th style="padding: 15px;" > Week </th>
+                            <th style="padding: 15px;" > SKPD </th>
+                            <th style="padding: 15px;" > MKPD </th>
+                            <th style="padding: 15px;" > Score </th>
+                            <th style="padding: 15px;" > HOD Remark </th>
+                            <th style="padding: 15px;" > Comment </th>
+                            <th style="padding: 15px;" > Approved </th>
+                            <th style="padding: 15px;" > Action </th>
+
+                            <th style="padding: 15px;" ></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for project in projects %}
+                        <tr>
+                            <!-- <td> {{project.mkpd.mkpd_id}} </td> -->
+                            <td> {{project.mkpd.period}} </td>
+                            <td> {{project.mkpd.employee | upper}} </td>
+                            <td> {{project.mkpd.week}} </td>
+                            <td> {{project.mkpd.skpd.kpd}} </td>
+                            <td> {{project.mkpd.mkpd_id}} </td>
+                            <td> {{project.score}} </td>
+                            <td> {{project.remark}} </td>
+                            <td> {{project.comment}} </td>
+                            <td> {{project.approved}} </td>  
+                            <td> <a style="color: blue;" href=" {% url "hrms:eva_update" pk=project.id %}">Edit</a></td>
+                            <td> <a style="color: red;" href=" {% url "hrms:eva_delete" pk=project.id %}">Delete</a> 
+                              </td>
+                                
+                        </tr>
+                            {% endfor%}
+
+                    </tbody>
+                </table>
+
+                
+                
+            </div>
+            <div class="button-container">
+                <button style="margin: 25px; border-radius: 5px; cursor: pointer; color: blue;" class="button-update"> <a href="{% url 'hrms:eva_all' %}" > Cancel </a> </button>
+            </div>
+
+          </main>
+           <!-- End of Main Body -->
+        
+        
+    </div>
+
+    <!-- <script src="./admindashboard.js"></script> -->
+    <script src=" {% static "admin/admindashboard.js"%} "></script>
+</body>
+</html>

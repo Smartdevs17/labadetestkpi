@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+     <!-- <link rel="stylesheet" href=" {% static "employee/employeedashboard.css"%} "> -->
+     <link rel="stylesheet" href=" {% static "admin/admindashboard.css"%} ">
+
+
+
+    <!-- <link rel="stylesheet" href="./employeedashboard.css"> -->
+</head>
+
+<body>
+    <div class="container">
+         <!-- Beginning of Aside or Side Bar -->
+         <aside>
+            <div class="top">
+                <div class="logo">
+                    
+                    <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                 <a href="#" class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3> Dashboard </h3>
+                 </a>
+                 {% if employee %}
+                 <a href=" {% url "hrms:employee_update" pk=employee.id %}">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3> Update Profile </h3>
+                 </a>
+            
+                 {% else %}
+                    <a href=" {% url "hrms:employee_new"%}">
+                        <span class="material-icons-sharp"> person_outline </span>
+                        <h3> Create Profile </h3>
+                    </a>
+                 {% endif %}
+              
+       
+    
+                 <!-- <a href=" {% url "hrms:complete_task"%} ">
+                    <span class="material-icons-sharp"> inventory </span>
+                    <h3> Activites/Task Undertaken </h3>
+                 </a> -->
+     
+                 <a href=" {% url "hrms:employee_logout"%} ">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a>
+            </div>
+        </aside>
+         <!-- End of Aside or Side Bar -->
+
+
+
+
+         {% block body_block %}
+
+
+
+         {% endblock %}
+
+
+
+
+
+         <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                 <span class="material-icons-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                 <span class="material-icons-sharp active"> light_mode </span>
+                 <span class="material-icons-sharp"> dark_mode </span>
+                </div>
+                <!-- <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>John</b></p>
+                        <small class="text-muted">Employee</small>
+                    </div>
+                    <div class="profile-photo">
+                     <img src="./images/profile-1.jpg" alt="">
+                    </div>
+                </div> -->
+                <div class="profile">
+                 <div class="info">
+                     <!-- <p>Hey, <b> {{user}} </b></p> -->
+                     <p>Hey, <b> {{employee.first_name}} </b></p>
+                     <small class="text-muted">Employee</small>
+                 </div>
+                 <div class="profile-photo">
+                  {% if employee.thumb %}
+                      <img src="{{employee.thumb.url}} " alt="">
+                   {% endif %}
+                 </div>
+              </div>
+            </div>   
+            
+            <!-- ----------------- BEGINNING OF FINAL RATINGS ------------------------->
+            <div class="department-analytics">
+                <h2> Final Ratings</h2>
+                {% for rating in ratings %}
+                <div class=" item logistics">
+                    <div class="icon">
+                     <span class="material-icons-sharp"> sync_alt </span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3> {{rating.skpd.kpd.description}} </h3>
+                            <small class="text-muted"> {{rating.remark}} </small>
+                            <h3><a href=" {% url "hrms:employee_complaint"%} ">Any Complaint</a></h3>
+                        </div>
+                        <h5 class="success"> +{{rating.score}}% </h5>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class=" item resource">
+                 <div class="icon">
+                     <span class="material-icons-sharp">language</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3> PROJECT NAME</h3>
+                            <small class="text-muted"> see more </small>
+                            <h3><a href=" {% url "hrms:employee_complaint"%} ">Any Complaint</a></h3>
+                        </div>
+                        <h5 class="success"> +30% </h5>
+                    </div>
+                </div>
+                <div class=" item finance">
+                 <div class="icon">
+                     <span class="material-icons-sharp"> price_change</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3> PROJECT NAME </h3>
+                            <small class="text-muted"> SEE MORE </small>
+                        </div>
+                        <h5 class="success"> +10% </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+        
+  <!-- <script src="./admindashboard.js"></script> -->
+  <script src=" {% static "admin/admindashboard.js"%} "></script>
+
+</body>
+</html>

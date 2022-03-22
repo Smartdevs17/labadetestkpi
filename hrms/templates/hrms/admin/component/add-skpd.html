@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+{% extends "hrms/admin/component/base.html" %}
+
+
+{% block body_block %}
+
+   <!-- Beginning of Main Body -->
+
+   <main>
+    <h1> Create New Department </h1>
+    <div class="login-container">
+      <p class="title"> Department Details </p>
+      <div class="separator"></div>
+      <p class="welcome-message"> Ensure to fill all fields </p>
+
+      <form class="login-form">
+          <div class="form-control">
+              <input type="text" placeholder="Department Name ">
+              <i class="fas fa-address-book"></i>
+          </div>
+          <div class="form-control">
+              <input type="text" placeholder=" HOD First name">
+              <i class="fas fa-user"></i>
+          </div>
+          <div class="form-control">
+              <input type="text" placeholder="HOD Last name ">
+              <i class="fas fa-user"></i>
+          </div>
+          <div class="form-control">
+              <input type="text" placeholder="HOD ID ">
+              <i class="fas fa-user"></i>
+          </div>
+          <div class="form-control">
+              <input type="email" placeholder=" HOD Email ">
+              <i class="fas fa-envelope"></i>
+          </div>
+          <div class="form-control">
+              <input type="tel" placeholder=" HOD Mobile number ">
+              <i class="fas fa-mobile"></i>
+          </div>
+          <div class="form-control">
+              <input type="text" placeholder="HOD Address ">
+              <i class="fas fa-address-book"></i>
+          </div>
+          <div class="form-control">
+              <input type="text" placeholder="Add Employee ">
+              <i class="fas fa-book"></i>
+          </div>
+
+          <div class="button-container">
+            <button type="submit" class="button-update"> <a style="text-decoration: none;" href=" {% url "hrms:admin_setting"%} ">Cancel</a> </button>
+              <button class="button-update"> Create Department </button>
+          </div>
+      </form>
+  </div>
+  
+</main>
+ <!-- End of Main Body -->
+
+  
+
+
+
+ {% endblock %}

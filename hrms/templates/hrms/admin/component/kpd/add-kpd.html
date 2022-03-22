@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+
+{% extends "hrms/admin/component/base.html" %}
+
+
+{% block body_block %}
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+            <h1> Create New Key Performance Deliverables </h1>
+            <div class="login-container">
+              <p class="title"> KPD Details </p>
+              <div class="separator"></div>
+              <p class="welcome-message"> Ensure to fill all fields </p>
+  
+              <form method="POST" class="login-form">
+                  {% csrf_token%}
+                  {{form.errors}}
+                  <h3>SBU ID</h3>
+                  <div class="form-control">
+                      {{form.sub_id}}
+                      <i class="fas fa-address-book"></i>
+                  </div>
+                  <h3>Department ID</h3>
+                  <div class="form-control">
+                      <!-- <input type="text" placeholder="Department Name "> -->
+                      {{form.dept_id}}
+                      <i class="fas fa-address-book"></i>
+                  </div>
+                  <h3>Unit ID</h3>
+                  <div class="form-control">
+                      <!-- <input type="text" placeholder="Department Name "> -->
+                      {{form.unit_id}}
+                      <i class="fas fa-address-book"></i>
+                  </div>
+
+                  <h3>KPD</h3>
+                  <div class="form-control">
+                    <!-- <input type="text" placeholder="Department Name "> -->
+                    {{form.kpd}}
+                    <i class="fas fa-address-book"></i>
+                </div>
+                
+                <h3>Description</h3>
+                  <div class="form-control">
+                      <!-- <input type="text" placeholder="Department Name "> -->
+                      {{form.description}}
+                      <i class="fas fa-address-book"></i>
+                  </div>
+  
+                  <div class="button-container">
+                    <button type="submit" class="button-update"> <a style="text-decoration: none;" href=" {% url "hrms:admin_setting"%} ">Cancel</a> </button>
+                      <button type="submit" class="button-update"> Create KPD </button>
+                  </div>
+              </form>
+          </div>
+          
+        </main>
+         <!-- End of Main Body -->
+  
+
+
+
+ {% endblock %}

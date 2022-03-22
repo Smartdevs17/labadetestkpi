@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static "employee/todo.css" %}">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Beginning of Aside or Side Bar -->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    
+                    <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                 <a href=" {% url "hrms:employee_dashboard"%} " class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3> Dashboard </h3>
+                 </a>
+            
+                 <a href="#">
+                    <span class="material-icons-sharp"> speaker_group </span>
+                    <h3> Apply for Leave </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> insights </span>
+                    <h3> Final Analytics </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> question_answer </span>
+                    <h3> Messages </h3>
+                 </a>
+                 <a href=" {% url "hrms:complete_task"%} ">
+                    <span class="material-icons-sharp"> inventory </span>
+                    <h3> Todo Tasks </h3>
+                 </a>
+                 <a href=" {% url "hrms:employee_logout"%} ">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a>
+            </div>
+        </aside>
+         <!-- End of Aside or Side Bar -->
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+              <h1> Todo </h1>
+
+              <div class="insights">
+
+                {% for project in projects %}
+
+                <!-- BEGINNING OF CURRENT PROJECT/TASKS -->
+                  <div class="employee-analytics">
+                  <div class="project-name">
+                      <h3> Project Period {{project.date}} </h3>
+                  </div>
+                    <div class="middle">
+                        <div class="left">
+                            <!-- <h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fugiat cumque dolorum, totam, quo voluptatum maxime officia natus perferendis nam provident vel unde dolore officiis iusto, itaque error? Qui, quae. </h4> -->
+                            <h4>{{project.kpd.description}} </h4>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" CY="38" R='36' ></circle>
+                            </svg>
+                            <div class="number">
+                                <p> {{project.weight }} </p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <!-- END OF CURRENT PROJECT/TASKS - -->
+
+                  
+                <!-- BEGINNING OF CURRENT PROJECT/TASKS - -->
+                 <!-- BEGINNING OF CURRENT PROJECT/TASKS -->
+                 <div class="employee-analytics">
+                    <div class="project-name">
+                        <h3> Project Name </h3>
+                    </div>
+                      <div class="middle">
+                          <div class="left">
+                              <h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fugiat cumque dolorum, totam, quo voluptatum maxime officia natus perferendis nam provident vel unde dolore officiis iusto, itaque error? Qui, quae. </h4>
+                          </div>
+                          <div class="progress">
+                              <svg>
+                                  <circle cx="38" CY="38" R='36' ></circle>
+                              </svg>
+                              <div class="number">
+                                  <p> 30 </p>
+                              </div>
+                          </div>
+                      </div>
+                   
+                    </div>
+  
+                    <!-- END OF CURRENT PROJECT/TASKS - -->
+                  <!-- END OF CURRENT PROJECT/TASKS - -->
+
+                 <!-- BEGINNING OF CURRENT PROJECT/TASKS -->
+                 <div class="employee-analytics">
+                    <div class="project-name">
+                        <h3> Project Name </h3>
+                    </div>
+                      <div class="middle">
+                          <div class="left">
+                              <h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fugiat cumque dolorum, totam, quo voluptatum maxime officia natus perferendis nam provident vel unde dolore officiis iusto, itaque error? Qui, quae. </h4>
+                          </div>
+                          <div class="progress">
+                              <svg>
+                                  <circle cx="38" CY="38" R='36' ></circle>
+                              </svg>
+                              <div class="number">
+                                  <p> 30 </p>
+                              </div>
+                          </div>
+                      </div>
+                     
+                    </div>
+  
+                    <!-- END OF CURRENT PROJECT/TASKS - -->
+
+                   <!-- BEGINNING OF CURRENT PROJECT/TASKS -->
+                   <div class="employee-analytics">
+                    <div class="project-name">
+                        <h3> Project Name </h3>
+                    </div>
+                      <div class="middle">
+                          <div class="left">
+                              <h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fugiat cumque dolorum, totam, quo voluptatum maxime officia natus perferendis nam provident vel unde dolore officiis iusto, itaque error? Qui, quae. </h4>
+                          </div>
+                          <div class="progress">
+                              <svg>
+                                  <circle cx="38" CY="38" R='36' ></circle>
+                              </svg>
+                              <div class="number">
+                                  <p> 30 </p>
+                              </div>
+                          </div>
+                      </div>
+                      
+                    </div>
+  
+                    <!-- END OF CURRENT PROJECT/TASKS - -->
+
+                  <!-- BEGINNING OF CURRENT PROJECT/TASKS -->
+                  <div class="employee-analytics">
+                    <div class="project-name">
+                        <h3> Project Name </h3>
+                    </div>
+                      <div class="middle">
+                          <div class="left">
+                              <h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fugiat cumque dolorum, totam, quo voluptatum maxime officia natus perferendis nam provident vel unde dolore officiis iusto, itaque error? Qui, quae. </h4>
+                          </div>
+                          <div class="progress">
+                              <svg>
+                                  <circle cx="38" CY="38" R='36' ></circle>
+                              </svg>
+                              <div class="number">
+                                  <p> 30 </p>
+                              </div>
+                          </div>
+                      </div>
+                      
+                    </div>
+  
+                    <!-- END OF CURRENT PROJECT/TASKS - -->
+                  <!-- BEGINNING OF CURRENT PROJECT/TASKS -->
+                  <div class="employee-analytics">
+                    <div class="project-name">
+                        <h3> Project Name </h3>
+                    </div>
+                      <div class="middle">
+                          <div class="left">
+                              <h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fugiat cumque dolorum, totam, quo voluptatum maxime officia natus perferendis nam provident vel unde dolore officiis iusto, itaque error? Qui, quae. </h4>
+                          </div>
+                          <div class="progress">
+                              <svg>
+                                  <circle cx="38" CY="38" R='36' ></circle>
+                              </svg>
+                              <div class="number">
+                                  <p> 30 </p>
+                              </div>
+                          </div>
+                      </div>
+                      
+                    </div>
+  
+                    <!-- END OF CURRENT PROJECT/TASKS - -->
+
+                   <!-- END OF CURRENT PROJECT/TASKS - -->
+                  
+              </div>
+          </main>
+           <!-- End of Main Body -->
+        {% endfor%}
+           <div class="right">
+               <div class="top">
+                   <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                   </button>
+                   <div class="theme-toggler">
+                    <span class="material-icons-sharp active"> light_mode </span>
+                    <span class="material-icons-sharp"> dark_mode </span>
+                   </div>
+                   <div class="profile">
+                       <div class="info">
+                        <p>Hey, <b> {{project.employee}} </b></p>
+                        <small class="text-muted">Employee</small>
+                       </div>
+                       <!-- <div class="profile-photo">
+                        <img src="./images/profile-1.jpg" alt="">
+                       </div> -->
+                       <div class="profile-photo">
+                        <!-- <img src="./images/profile-1.jpg" alt=""> -->
+                        <!-- <img src=" {% static "employee/images/profile-1.jpg"%} " alt=""> -->
+
+                        {% if employee.thumb %}
+                            <img src="{{employee.thumb.url}} " alt="">
+                         {% endif %}
+                       </div>
+                   </div>
+               </div>   
+
+
+               <div class="button-container">
+                <button class="button-update"> <a href=" {% url "hrms:complete_task"%} "> Complete Task </a> </button>
+            </div>
+            
+           </div>
+    </div>
+
+    <!-- <script src="./admindashboard.js"></script> -->
+    <script src=" {% static "admin/admindashboard.js"%} "></script>
+
+</body>
+</html>

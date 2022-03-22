@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <link rel="stylesheet" href="./managerdashboard.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Beginning of Aside or Side Bar -->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    
+                    <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                 <a href="#" class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3> Dashboard </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3> Members </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> speaker_group </span>
+                    <h3> Reports </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> insights </span>
+                    <h3> Assign Rating </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> question_answer </span>
+                    <h3> Messages </h3>
+                    <span class="message-count">26</span>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> inventory </span>
+                    <h3> Projects </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3> Settings </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a>
+            </div>
+        </aside>
+         <!-- End of Aside or Side Bar -->
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+              <h1> Dashboard </h1>
+
+              <div class="insights">
+
+                <!-- BEGINNING OF Quick Details -->
+                  <div class="company-analytics">
+                    <span class="material-icons-sharp"> stacked_line_chart </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3> Logistics </h3>
+                            <h5> No of Members </h5>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" CY="38" R='36' ></circle>
+                            </svg>
+                            <div class="number">
+                                <p>100</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted"> Till Date </small>
+                  </div>
+
+                  <!-- END OF Quick details -->
+
+                  
+                <!-- BEGINNING OF EMPLOYEE ANALYTICS -->
+                <div class="employee-analytics">
+                    <span class="material-icons-sharp"> bar_chart </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3> Projects </h3>
+                            <h5> No of Projects </h5>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" CY="38" R='36' ></circle>
+                            </svg>
+                            <div class="number">
+                                <p>30</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted"> project count </small>
+                  </div>
+
+                  <!-- END OF EMPLOYEE ANALYTICS -->
+
+                  
+                <!-- BEGINNING OF PROJECT ANALYTICS -->
+              
+
+                  <!-- END OF PROJECT ANALYTICS -->
+              </div>
+
+              <div class="employee-quick-details">
+                  <h2> Reports </h2>
+                  <table>
+                      <thead>
+                          <tr>
+                              <th> Employee name </th>
+                              <th> Project Name </th>
+                              <th> Project ID </th>
+                              <th> Project Rating </th>
+                              <th></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td> Joshua Abanjo </td>
+                              <td>MID34 Daily Delivery </td>
+                              <td> 202201 </td>
+                              <td class="success"> Excellent </td>
+                          </tr>
+                          <tr>
+                            <td> David adeleke </td>
+                            <td>MID34 Daily Delivery </td>
+                            <td> 202201 </td>
+                            <td class="warning"> Good </td>
+                        </tr>
+                        <tr>
+                            <td> Kenneth ato </td>
+                            <td>MID34 Daily Delivery </td>
+                            <td> 202201 </td>
+                            <td class="danger"> Needs Improvement </td>
+                        </tr>
+                        <tr>
+                            <td> Angel ogbonna </td>
+                            <td>MID34 Daily Delivery </td>
+                            <td> 202201 </td>
+                            <td class="success"> Excellent </td>
+                        </tr>
+                        <tr>
+                            <td> John doe </td>
+                            <td>MID34 Daily Delivery </td>
+                            <td> 202201 </td>
+                            <td class="success"> Excellent </td>
+                        </tr>
+                        <tr>
+                            <td> Hillary ken </td>
+                            <td>MID34 Daily Delivery </td>
+                            <td> 202201 </td>
+                            <td> class="warning"> Good </td>
+                        </tr>
+                      </tbody>
+                  </table>
+                  <a href="#"> Show All </a>
+              </div>
+          </main>
+           <!-- End of Main Body -->
+
+           <div class="right">
+               <div class="top">
+                   <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                   </button>
+                   <div class="theme-toggler">
+                    <span class="material-icons-sharp active"> light_mode </span>
+                    <span class="material-icons-sharp"> dark_mode </span>
+                   </div>
+                   <div class="profile">
+                       <div class="info">
+                           <p>Hey, <b>Anthony</b></p>
+                           <small class="text-muted">Manager</small>
+                       </div>
+                       <div class="profile-photo">
+                        <img src="./images/profile-1.jpg" alt="">
+                       </div>
+                   </div>
+               </div>
+
+               <div class="recent-updates">
+                   <h2>Recent Updates</h2>
+                         <div class="updates">
+                             <div class="update">
+                                 <div class="profile-photo">
+                                    <img src="./images/profile-2.jpg" alt="">
+                                 </div>
+                                 <div class="message">
+                                     <p><b>Angela Ogbion</b> just completed the daily task </p>
+                                     <small class="text-muted"> 1 minute ago </small>
+                                 </div>
+                             </div>
+                             <div class="update">
+                                <div class="profile-photo">
+                                    <img src="./images/profile-3.jpg" alt="">
+                                </div>
+                                <div class="message">
+                                    <p><b>Angela Ogbion</b> just completed the daily task </p>
+                                    <small class="text-muted"> 1 minute ago </small>
+                                </div>
+                            </div>
+                            <div class="update">
+                                <div class="profile-photo">
+                                    <img src="./images/profile-4.jpg" alt="">
+                                </div>
+                                <div class="message">
+                                    <p><b>Angela Ogbion</b> just completed the daily task </p>
+                                    <small class="text-muted"> 1 minute ago </small>
+                                </div>
+                            </div>
+                         </div>
+               </div>
+
+               <!-- ----------------- END OF RECENT UPDATES ------------------------->
+               <div class="department-analytics">
+                   <h2> Recent Analytics</h2>
+                   <div class=" item logistics">
+                       <div class="icon">
+                        <span class="material-icons-sharp"> sync_alt </span>
+                       </div>
+                       <div class="right">
+                           <div class="info">
+                               <h3> PROJECT NAME </h3>
+                               <small class="text-muted"> Johnson abel </small>
+                           </div>
+                           <h5 class="success"> +39% </h5>
+                       </div>
+                   </div>
+                   <div class=" item resource">
+                    <div class="icon">
+                        <span class="material-icons-sharp">language</span>
+                       </div>
+                       <div class="right">
+                           <div class="info">
+                               <h3> SENDING MEMO </h3>
+                               <small class="text-muted"> Kenneth dambe </small>
+                           </div>
+                           <h5 class="success"> +30% </h5>
+                       </div>
+                   </div>
+                   <div class=" item finance">
+                    <div class="icon">
+                        <span class="material-icons-sharp"> price_change</span>
+                       </div>
+                       <div class="right">
+                           <div class="info">
+                               <h3> CHG THG </h3>
+                               <small class="text-muted"> Raymond elliot </small>
+                           </div>
+                           <h5 class="success"> +12% </h5>
+                       </div>
+                   </div>
+               </div>
+           </div>
+    </div>
+
+    <script src="./admindashboard.js"></script>
+</body>
+</html>

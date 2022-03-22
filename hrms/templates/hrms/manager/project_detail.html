@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+     <!-- <link rel="stylesheet" href=" {% static "register/register.css"%} "> -->
+    <link rel="stylesheet" href=" {% static "employee/todo.css"%} ">
+
+</head>
+<body>
+    <div class="container">
+        <!-- Beginning of Aside or Side Bar -->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    
+                    <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                 <a href="#" class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3> Dashboard </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3> Members </h3>
+                 </a>
+                 <a href=" {% url "hrms:evaluation"%} ">
+                    <span class="material-icons-sharp"> speaker_group </span>
+                    <h3> KPI Evalutation </h3>
+                 </a>
+                 <a href=" {% url "hrms:manager_report"%} ">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3> Report </h3>
+                 </a>
+                 <a href=" {% url "hrms:assign_rating"%} ">
+                    <span class="material-icons-sharp"> insights </span>
+                    <h3> Employee Ratings </h3>
+                 </a>
+                 <a href=" {% url "hrms:manager_message"%} ">
+                    <span class="material-icons-sharp"> question_answer </span>
+                    <h3> Messages </h3>
+                    <span class="message-count"> {{staff_total}} </span>
+                 </a>
+
+                 <a href=" {% url "hrms:create_project"%} ">
+                    <span class="material-icons-sharp"> inventory </span>
+                    <h3> Projects </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3> Settings </h3>
+                 </a>
+            
+                 <a href=" {% url "hrms:logout" %} ">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a>
+            </div>
+        </aside>
+         <!-- End of Aside or Side Bar -->
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+              <h1> Staff Key Performance Delivables Details </h1>
+
+              <div class="insights">
+
+                <!-- BEGINNING OF CURRENT PROJECT/TASKS -->
+                  <div class="employee-analytics">
+                  <div class="project-name">
+                      <h3> Project Name: {{project.name}} </h3>
+                  </div>
+                    <div class="middle">
+                        <div class="left">
+                            <h4> {{project.description}} </h4>
+                        </div>
+                        <!-- <div class="progress">
+                            <svg>
+                                <circle cx="38" CY="38" R='36' ></circle>
+                            </svg>
+                            <div class="number">
+                                <p> {{project.skpd.weight}} </p>
+                            </div>
+                        </div> -->
+                    </div>
+                  </div>
+
+                  <!-- END OF CURRENT PROJECT/TASKS - -->
+
+                
+                       <!-- BEGINNING OF CURRENT PROJECT/TASKS -->
+                       <div class="employee-analytics">
+                        <div class="project-name">
+                            <h3> Employee Name: {{project.employee}} </h3>
+                            <h3> GL: {{project.employee.grade_level.gradelevel}} </h3>
+                            <h3> SBU/Directorate: {{project.employee.sbu_id.sbu_name}} </h3>
+                            <h3> Department: {{project.employee.department.dept_name}} </h3>
+                            <h3> Unit: {{project.employee.unit}} </h3>
+                        </div>
+                          <div class="middle">
+                              <div class="left">
+                                  <!-- <h4> {{project.description}} </h4> -->
+                              </div>
+                              <!-- <div class="progress">
+                                  <svg>
+                                      <circle cx="38" CY="38" R='36' ></circle>
+                                  </svg>
+                                  <div class="number">
+                                      <p> {{project.skpd.weight}} </p>
+                                  </div>
+                              </div> -->
+                          </div>
+                        </div>
+      
+                        <!-- END OF CURRENT PROJECT/TASKS - -->
+             
+                  
+              </div>
+          </main>
+           <!-- End of Main Body -->
+
+           <div class="right">
+               <div class="top">
+                   <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                   </button>
+                   <div class="theme-toggler">
+                    <span class="material-icons-sharp active"> light_mode </span>
+                    <span class="material-icons-sharp"> dark_mode </span>
+                   </div>
+                   <div class="profile">
+                       <div class="info">
+                           <p>Hey, <b> {{project.employee}} </b></p>
+                           <small class="text-muted">Employee</small>
+                       </div>
+                       <div class="profile-photo">
+                        <img src=" {{project.employee.employee.thumb.url}} " alt="">
+                       </div>
+                   </div>
+               </div>   
+               <div class="button-container">
+                <!-- <button class="button-update"> Assign Rating </button> -->
+            <button class="button-update" > <a href=" {% url "hrms:evaluation"%} "> Assign Rating</a> </button>
+            </div>
+            
+           </div>
+
+
+
+
+           
+    </div>
+
+    <!-- <script src="./admindashboard.js"></script> -->
+    <script src=" {% static "admin/admindashboard.js"%} "></script>
+
+</body>
+</html>

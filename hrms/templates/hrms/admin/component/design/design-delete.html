@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+{% extends "hrms/admin/component/comp-base.html" %}
+
+{% block body_block %}
+
+
+
+<main>
+    <h1> Are you sure? </h1>
+
+    <div class="button-container">
+        <button class="button-update"> <a href="{% url 'hrms:design_all' %}" > Return </a> </button>
+    </div>
+
+    <div class="employee-analytics">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="middle">
+                <div style="margin: 10px;" class="left">
+                    <h2> Are you sure you want to delete the Designation {{object}} All of the following related items will be deleted: </h2>
+                </div>
+            
+            </div>
+            <input type="submit" value="Confirm">
+            <!-- <h3 style="float: right; "> <a style="color: red;" href=" {% url "hrms:design_delete" pk=design.design_id %}">Yes, I'm sure </a> </h3> -->
+            <h3 > <a style="color: rgba(255, 0, 0, 0.948);" href=" {% url "hrms:design_detail" pk=design.design_id %}">No, take me back</a> </h3>
+
+        </form>
+
+        
+        </div>
+
+
+</main>
+ <!-- End of Main Body -->
+
+
+
+
+
+
+{% endblock %}

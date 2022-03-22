@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Staff Key Performance Deliverable</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="./employeedashboard.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href=" {% static "admin/employeedashboard.css"%} ">
+
+</head>
+<body>
+    <div class="container">
+
+             <!-- Beginning of Aside or Side Bar -->
+             <aside>
+                <div class="top">
+                    <div class="logo">
+                        
+                        <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <span class="material-icons-sharp">close </span>
+                    </div>
+                </div>
+    
+                <div class="sidebar">
+                     <a href="{% url "hrms:manager_dashboard"%}" class="active">
+                        <span class="material-icons-sharp"> dashboard </span>
+                        <h3> Dashboard </h3>
+                     </a>
+                     <a href="{% url "hrms:manager_members"%}" >
+                        <span class="material-icons-sharp"> person_outline </span>
+                        <h3> Employees </h3>
+                     </a>
+                     <a href=" {% url "hrms:eva_all"%} ">
+                        <span class="material-icons-sharp"> speaker_group </span>
+                        <h3> KPI Evalutation </h3>
+                     </a>
+                     <a href=" {% url "hrms:manager_report"%} ">
+                        <span class="material-icons-sharp"> settings </span>
+                        <h3> Report </h3>
+                     </a>
+                
+                     <a href="#">
+                        <span class="material-icons-sharp"> inventory </span>
+                        <h3> Assign Deliverables </h3>
+                     </a>
+    
+                
+                     <a href=" {% url "hrms:manager_logout" %} ">
+                        <span class="material-icons-sharp"> logout </span>
+                        <h3> Logout </h3>
+                     </a>
+                </div>
+            </aside>
+             <!-- End of Aside or Side Bar -->
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+              <h1> Staff Key  Performance </h1>
+              <div class="login-container">
+                <p class="title"> Deliverables </p>
+                <div class="separator"></div>
+                <p class="welcome-message"> Assign Deliverables deliverabes to available employees </p>
+    
+                <form id="SKPDForm" method="POST" class="login-form" >
+                    {{form.errors}}
+                    {% csrf_token %}
+                 
+                    <h3>Date</h3>
+                    <div class="form-control">
+                        {{form.period}}
+                    </div>
+
+
+                    <h3>Dept</h3>
+                    <div class="form-control">
+                        {{form.dept}}
+                    </div>
+
+                    <h3>Employee</h3>
+                    <div class="form-control">
+                        {{form.employee}}
+                    
+                    </div>
+
+                    <h3>Weight</h3>
+                    <div class="form-control">
+                        {{form.weight}}
+                    </div>
+
+                    <h3>Expected Delivery Date</h3>
+                    <div class="form-control">
+                        {{form.expected_time_of_delivery}}
+                    </div>
+                    <h3>Key Performance Deliverables </h3>
+                    <div class="form-control">
+                        {{form.kpd}}
+                    </div>
+
+                    <div class="button-container">
+                        <button class="button-update"> Submit </button>
+                        <button class="button-update"> <a href=" {% url "hrms:skpd_all" %} ">Cancel</a> </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+            
+          </main>
+           <!-- End of Main Body -->
+
+         
+    </div>
+
+    <!-- <script src="./admindashboard.js"></script> -->
+    <script src=" {% static "admin/admindashboard.js"%} "></script>
+    <!-- <script src=" {% static "admin/jquery.min.js"%} "></script>
+    <script>
+        $("#id_sbu").change(function () {
+          var url = $("#SKPDForm").attr("data-depts-url");  
+          var sbuId = $(this).val();  
+          //console.log(sbuId);
+    
+          $.ajax({                      
+            url: url,                    
+            data: {
+              'sbu_id': sbuId,
+                     
+            },
+            success: function (data) {  
+                // console.log(data);
+               $("#id_dept").html(data);  
+
+
+              let html_data = `<option value="">----------</option>`
+              ////data.forEach( function (dept)  {
+                  html_data += `<option value="${dept.unit_id}"> ${dept.unit_name}</option> `
+              //})
+             // console.log(html_data)
+              // $("#id_dept").html(html_data);  
+            }
+          });
+    
+        });
+
+
+        $("#id_dept").change(function () {
+            var url = $("#SKPDForm").attr("data-units-url");  
+            var deptId = $(this).val();  
+            console.log(deptId);
+      
+            $.ajax({                      
+              url: url,                    
+              data: {
+                'unit_id': deptId       
+              },
+              
+              success: function (data) {  
+                  // console.log(data);
+                 $("#id_employee").html(data);  
+  
+  
+                let html_data = `<option value="">----------</option>`
+                ////data.forEach( function (dept)  {
+                    html_data += `<option value="${unit.employ_id}"> ${unit.employee.first_name}</option> `
+                //})
+               // console.log(html_data)
+                // $("#id_dept").html(html_data);  
+              }
+            });
+      
+          });
+      </script> -->
+
+
+</body>
+</html>

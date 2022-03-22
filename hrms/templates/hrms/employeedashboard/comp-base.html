@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Section</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="./employeedashboard.css"> -->
+    <link rel="stylesheet" href="{% static "employee/todo.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    
+                    <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                 <a href="#" class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3> Dashboard </h3>
+                 </a>
+                
+                 <a href=" {% url "hrms:employee_update" pk=user.id %}">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3> Update Profile </h3>
+                 </a>
+            
+<!--        
+                 <a href="#">
+                    <span class="material-icons-sharp"> speaker_group </span>
+                    <h3> Apply for Leave </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> insights </span>
+                    <h3> Final Analytics </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> question_answer </span>
+                    <h3> Messages </h3>
+                 </a> -->
+                 <a href=" {% url "hrms:proj_all"%} ">
+                    <span class="material-icons-sharp"> inventory </span>
+                    <h3> Activites/Task Undertaken </h3>
+                 </a>
+                 <!-- <a href="#">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a> -->
+                 <a href=" {% url "hrms:employee_logout"%} ">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a>
+            </div>
+        </aside>
+         <!-- End of Aside or Side Bar -->
+
+
+
+     <!-- <div class="container"> -->
+
+
+        {% block body_block %}
+
+
+
+
+
+        {% endblock %}
+
+     <!-- </div> -->
+
+
+     <div class="right">
+        <div class="top">
+            <button id="menu-btn">
+             <span class="material-icons-sharp">menu</span>
+            </button>
+            <div class="theme-toggler">
+             <span class="material-icons-sharp active"> light_mode </span>
+             <span class="material-icons-sharp"> dark_mode </span>
+            </div>
+            <div class="profile">
+                <div class="info">
+                    <p>Hey, <b>{{user.username | upper}}</b></p>
+                    <small class="text-muted">Admin</small>
+                </div>
+                <div class="profile-photo">
+                 <img src="{{user.thumb.url}}" alt="">
+                </div>
+
+        
+            </div>
+        </div>
+    </div>
+          
+       
+    </div>
+
+    <script src=" {% static "admin/admindashboard.js"%} "></script>
+
+</body>
+</html>

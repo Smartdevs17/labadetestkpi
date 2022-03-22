@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <link rel="stylesheet" href=" {% static "employee/employeedashboard.css"%} ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    
+                    <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                 <a href="#" class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3> Dashboard </h3>
+                 </a>
+                
+                 <a href=" {% url "hrms:employee_update" pk=user.id %}">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3> Update Profile </h3>
+                 </a>
+            
+<!--        
+                 <a href="#">
+                    <span class="material-icons-sharp"> speaker_group </span>
+                    <h3> Apply for Leave </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> insights </span>
+                    <h3> Final Analytics </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> question_answer </span>
+                    <h3> Messages </h3>
+                 </a> -->
+                 <a href=" {% url "hrms:proj_all"%} ">
+                    <span class="material-icons-sharp"> inventory </span>
+                    <h3> Activites/Task Undertaken </h3>
+                 </a>
+                 <!-- <a href="#">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a> -->
+                 <a href=" {% url "hrms:employee_logout"%} ">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a>
+            </div>
+        </aside>
+         <!-- End of Aside or Side Bar -->
+
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+              <h1> Deliverable: {{skpd.kpd.kpd}} </h1>
+              <div class="login-container">
+                <p class="title"> Description: {{skpd.kpd.description}} </p>
+                <div class="separator"></div>
+                <p class="welcome-message"> Expected Time of Deliverable {{skpd.expected_time_of_delivery}} </p>
+    
+                <form method="post" class="login-form">
+                    {{form.errors}}
+                    {% csrf_token%}
+
+              
+                    <label for="subject"> Select Week </label>
+                    <div class="form-control">
+                        {{form.week}}
+                    </div>
+                
+                    <label for="subject"> Date </label>
+                    <div class="form-control">
+                        {{form.date}}
+                    </div>
+
+                   
+                    <label for="subject"> Time In </label>
+                    <div class="form-control">
+                        {{form.time_in}}
+                    </div>
+
+                    <label for="subject"> Time Out </label>
+                    <div class="form-control">
+                        {{form.time_out}}
+                    </div>
+
+                
+
+                    <label for="subject"> Description of Activities/Tasks Undertaken </label>
+                    <div class="form-control">
+                        {{form.description}}
+                    </div>
+
+                    <label for="subject"> Staff Approved </label>
+                    <div class="form-control">
+                        {{form.approved}}
+                    </div>
+
+                    <div class="button-container">
+                        <button type="submit" class="button-update"> <a style="text-decoration: none;" href=" {% url "hrms:employee_dashboard"%} ">Cancel</a> </button>
+                        <button type="submit" class="button-update"> Submit </button>
+                    </div>
+
+
+                </form>
+            </div>
+            
+          </main>
+           <!-- End of Main Body -->
+
+           <div class="right">
+               <div class="top">
+                   <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                   </button>
+                   <div class="theme-toggler">
+                    <span class="material-icons-sharp active"> light_mode </span>
+                    <span class="material-icons-sharp"> dark_mode </span>
+                   </div>
+                   <div class="profile">
+                       <div class="info">
+                           <p>Hey, <b> {{skpd.employee.employee.first_name | upper}} </b></p>
+                           <small class="text-muted">Employee</small>
+                       </div>
+                       <div class="profile-photo">
+                        <img src=" {{skpd.employee.employee.thumb.url}} " alt="">
+  
+                       </div>
+                   </div>
+               </div>   
+               
+               <!-- ----------------- BEGINNING OF FINAL RATINGS ------------------------->
+              
+           </div>
+    </div>
+
+    <!-- <script src="./admindashboard.js"></script> -->
+    <script src=" {% static "admin/admindashboard.js"%} "></script>
+ <!-- <script src=" {% static "admin/jquery.min.js"%} "></script>
+    <script>
+        $("#id_sbu").change(function () {
+          var url = $("#SKPDForm").attr("data-depts-url");  
+          var sbuId = $(this).val();  
+          //console.log(sbuId);
+    
+          $.ajax({                      
+            url: url,                    
+            data: {
+              'sbu_id': sbuId,
+                     
+            },
+            success: function (data) {  
+                // console.log(data);
+               $("#id_dept").html(data);  
+
+
+              let html_data = `<option value="">----------</option>`
+              ////data.forEach( function (dept)  {
+                  html_data += `<option value="${dept.unit_id}"> ${dept.unit_name}</option> `
+              //})
+             // console.log(html_data)
+              // $("#id_dept").html(html_data);  
+            }
+          });
+    
+        });
+
+
+        $("#id_dept").change(function () {
+            var url = $("#SKPDForm").attr("data-units-url");  
+            var deptId = $(this).val();  
+            console.log(deptId);
+      
+            $.ajax({                      
+              url: url,                    
+              data: {
+                'unit_id': deptId       
+              },
+              
+              success: function (data) {  
+                  // console.log(data);
+                 $("#id_employee").html(data);  
+  
+  
+                let html_data = `<option value="">----------</option>`
+                ////data.forEach( function (dept)  {
+                    html_data += `<option value="${unit.employ_id}"> ${unit.employee.first_name}</option> `
+                //})
+               // console.log(html_data)
+                // $("#id_dept").html(html_data);  
+              }
+            });
+      
+          });
+      </script> -->
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="./assign-rating-table.css"> -->
+    <link rel="stylesheet" href=" {% static "admin/managerdashboard.css"%} ">
+</head>
+<body>
+    <div class="container">
+
+      
+      <!-- Beginning of Aside or Side Bar -->
+      <aside>
+        <div class="top">
+            <div class="logo">
+                
+                <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+            </div>
+            <div class="close" id="close-btn">
+                <span class="material-icons-sharp">close </span>
+            </div>
+        </div>
+
+        <div class="sidebar">
+             <a href="{% url 'hrms:admin_dashboard' %}" class="active">
+                <span class="material-icons-sharp"> dashboard </span>
+                <h3> Dashboard </h3>
+             </a>
+             <a href="{% url 'hrms:employee_all' %}">
+                <span class="material-icons-sharp"> person_outline </span>
+                <h3> Employees </h3>
+             </a>
+      
+             <a href="{% url 'hrms:report_complaint' %}">
+                <span class="material-icons-sharp"> summarize </span>
+                <h3> Employee Complaint </h3>
+             </a>
+             <a href=" {% url "hrms:admin_setting"%} ">
+                <span class="material-icons-sharp"> settings </span>
+                <h3> Settings </h3>
+             </a>
+             <!-- <a href="{% url 'hrms:employment_new' %}">
+                <span class="material-icons-sharp"> add </span>
+                <h3> Add Employee </h3>
+             </a> -->
+ 
+             <a href=" {% url "hrms:admin_logout" %} ">
+                <span class="material-icons-sharp"> logout </span>
+                <h3> Logout </h3>
+             </a>
+        </div>
+    </aside>
+         <!-- End of Aside or Side Bar -->
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+
+            <h1> All Units </h1>
+
+            <div class="button-container">
+                <button style="margin: 25px; border-radius: 5px; cursor: pointer;" class="button-update"> <a href="{% url 'hrms:unit_new' %}" > Add unit </a> </button>
+            </div>
+
+              <div class="insights">
+
+                  <!-- END OF Quick details -->
+
+                  
+               
+
+                  <!-- END OF EMPLOYEE ANALYTICS -->
+
+                  
+                <!-- BEGINNING OF PROJECT ANALYTICS -->
+              
+
+                  <!-- END OF PROJECT ANALYTICS -->
+              </div>
+
+              <div class="employee-quick-details-assign-rating">
+                <table style="margin: 25px;" >
+                    <thead>
+                        <tr>
+                            <!-- <th style="padding: 15px;"> S/N </th> -->
+                            <th style="padding: 15px;"> Unit ID </th>
+                            <th style="padding: 15px;"> Unit Name </th>
+                            <th style="padding: 15px;"> Action </th>
+                            <th style="padding: 15px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if units %}
+
+                        {% for unit in units %}
+
+                        <tr>
+                            <!-- <td>  {{unit.id}} </td> -->
+                            <td>  {{unit.unit_id}} </td>
+                            <td>  {{unit.unit_name}} </td>
+                            <td> <h3><a href=" {% url "hrms:unit_detail" pk=unit.unit_id %}">View</a></h3> </td>
+                        </tr>
+
+                        {% endfor %}
+
+                        {% endif %}
+
+                    </tbody>
+                </table>
+            </div>
+          </main>
+           <!-- End of Main Body -->
+           <div class="button-container">
+            <button style="margin: 25px; border-radius: 5px; cursor: pointer; color: blue;" class="button-update"> <a href="{% url 'hrms:admin_dashboard' %}" > Cancel </a> </button>
+        </div>
+        
+    </div>
+
+    <script src=" {% static "admin/admindashboard.js"%} "></script>
+</body>
+</html>

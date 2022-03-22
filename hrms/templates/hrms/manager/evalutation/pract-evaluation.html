@@ -1,0 +1,177 @@
+<!DOCTYPE html> 
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <link rel="stylesheet" href=" {% static "manager/assign-rating-table.css" %} ">
+</head>
+<body>
+    <div class="container">
+
+        
+        <!-- Beginning of Aside or Side Bar -->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    
+                    <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                 <a href="{% url "hrms:manager_dashboard"%}" class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3> Dashboard </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3> Employee </h3>
+                 </a>
+                 <a href=" {% url "hrms:evaluation"%} ">
+                    <span class="material-icons-sharp"> speaker_group </span>
+                    <h3> KPI Evalutation </h3>
+                 </a>
+                 <a href=" {% url "hrms:manager_report"%} ">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3> Report </h3>
+                 </a>
+                 <a href=" {% url "hrms:assign_rating"%} ">
+                    <span class="material-icons-sharp"> insights </span>
+                    <h3> Employee Ratings </h3>
+                 </a>
+       
+
+                 <a href=" {% url "hrms:skpd_all"%} ">
+                    <span class="material-icons-sharp"> inventory </span>
+                    <h3> Projects </h3>
+                 </a>
+
+                 <a href=" {% url "hrms:manager_logout" %} ">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a>
+            </div>
+        </aside>
+         <!-- End of Aside or Side Bar -->
+
+      
+         <!-- End of Aside or Side Bar -->
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+              <h1> Employee With Deliverables </h1>
+            
+              <div class="insights">
+
+                  <!-- END OF Quick details -->
+
+                
+              <!-- BEGINNING OF Quick Details -->
+              <div class="company-analytics">
+                <span class="material-icons-sharp"> stacked_line_chart </span>
+                <div class="middle">
+                    <div class="left">
+                        <h3> No of Employee </h3>
+                    </div>
+                    <div class="progress">
+                        <svg>
+                            <circle cx="38" CY="38" R='36' ></circle>
+                        </svg>
+                        <div class="number">
+                            <!-- <p>100</p> -->
+                            {{skpd_total}}
+                        </div>
+                    </div>
+                </div>
+                <small class="text-muted"> Till Date </small>
+                <h3 style="float: right;" > <a href=" {% url "hrms:manager_members"%} "> View All </a> <h3/>
+                </div>
+
+              <!-- END OF Quick details -->
+               
+
+                  <!-- END OF EMPLOYEE ANALYTICS -->
+
+                  
+                <!-- BEGINNING OF PROJECT ANALYTICS -->
+              
+
+                  <!-- END OF PROJECT ANALYTICS -->
+              </div>
+
+              <div class="employee-quick-details-assign-rating">
+                <h2> Table </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            
+                            <th style="padding: 15px;" > Employee Name </th>
+                            <th style="padding: 15px;" > Grade Level </th>
+                            <th style="padding: 15px;" > Sbu/Directorate </th>
+                            <th style="padding: 15px;" > Department </th>
+                            <th style="padding: 15px;" > Designation </th>
+                            <th style="padding: 15px;" > Position </th>
+                            <th style="padding: 15px;" > Station </th>    
+                            <th style="padding: 15px;" > Action </th>    
+                            <th style="padding: 15px;" ></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for staff in staffs %}
+                        {% if staff.total > 0 %}
+
+
+
+                        <tr>
+                        
+                            <td> {{staff.employee.first_name}} {{staff.employee.last_name}} </td>
+                            <td> {{staff.gradelevel}} </td>  
+                            <td> {{staff.sbu_id}} </td>  
+                            <td> {{staff.department}} </td>  
+                            <td> {{staff.designation}} </td>  
+                            <td> {{staff.position}} </td>  
+                            <td> {{staff.station}} </td>
+                            <td> <h3><a href=" {% url "hrms:mkpd_all" pk=staff.employ_id %}">View</a></h3> </td>
+
+                        </tr>
+                                {% endif %}
+                            {% endfor%}
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td> {{total.total}} </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                      
+                    </tbody>
+                </table>
+
+                
+            </div>
+
+            <div class="button-container">
+                <button style="margin: 25px; border-radius: 5px; cursor: pointer; color: blue;" class="button-update"> <a href="{% url 'hrms:manager_dashboard' %}" > Cancel </a> </button>
+            </div>
+          </main>
+           <!-- End of Main Body -->
+        
+              
+    </div>
+
+    <!-- <script src="./admindashboard.js"></script> -->
+    <script src=" {% static "admin/admindashboard.js"%} "></script>
+</body>
+</html>

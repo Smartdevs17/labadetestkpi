@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <link rel="stylesheet" href=" {% static "employee/employeedashboard.css"%} ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+              <!-- Beginning of Aside or Side Bar -->
+              <aside>
+                <div class="top">
+                    <div class="logo">
+                        
+                        <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <span class="material-icons-sharp">close </span>
+                    </div>
+                </div>
+    
+                <div class="sidebar">
+                     <a href=" {% url "hrms:employee_dashboard"%} " class="active">
+                        <span class="material-icons-sharp"> dashboard </span>
+                        <h3> Dashboard </h3>
+                     </a>
+<!--                
+                     <a href="#">
+                        <span class="material-icons-sharp"> speaker_group </span>
+                        <h3> Apply for Leave </h3>
+                     </a> -->
+                   
+            
+                     <a href=" {% url "hrms:complete_task"%} ">
+                        <span class="material-icons-sharp"> inventory </span>
+                        <h3> Activites/Task Undertaken </h3>
+                    </a>
+                 
+                     <!-- <a href="#">
+                        <span class="material-icons-sharp"> logout </span>
+                        <h3> Logout </h3>
+                     </a> -->
+                     <a href=" {% url "hrms:employee_logout"%} ">
+                        <span class="material-icons-sharp"> logout </span>
+                        <h3> Logout </h3>
+                     </a>
+                </div>
+            </aside>
+             <!-- End of Aside or Side Bar -->
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+              <h1> Deliverables </h1>
+              <div class="login-container">
+                <p class="title"> Available Tasks </p>
+                <div class="separator"></div>
+                <p class="welcome-message"> Complete Task </p>
+    
+                <form method="post" class="login-form">
+                    {{form.errors}}
+                    {% csrf_token%}
+                    <div class="form-control">
+                        <!-- <input type="text" placeholder="Project name"> -->
+                        {{form.period}}
+                        {% comment %} <i class="fas fa-project-diagram"></i> {% endcomment %}
+                    </div>
+                    <label for="subject"> Select Week </label>
+                    <div class="form-control">
+                        <!-- <input type="text" placeholder="Employee Name "> -->
+                        {{form.week}}
+                        <!-- <i class="fas fa-user"></i> -->
+                    </div>
+                
+                    <label for="subject"> Time In </label>
+                    <div class="form-control">
+                        {{form.time_in}}
+                    </div>
+
+                    <label for="subject"> Time Out </label>
+                    <div class="form-control">
+                        {{form.time_out}}
+                    </div>
+
+                    <label for="subject"> Date </label>
+                    <div class="form-control">
+                        {{form.date}}
+                    </div>
+
+                    <label for="subject"> Description of Activities/Tasks Undertaken </label>
+                    {{form.description}}
+                    <!-- <textarea  id="subject" na/me="subject" placeholder="description" style="height:200px" style="padding: 20px;" class="description"></textarea> -->
+                    <label for="subject"> Staff Approved </label>
+                    <div class="form-control">
+                        <!-- <input type="text" placeholder="Employee Name "> -->
+                        {{form.approved}}
+                        <!-- <i class="fas fa-user"></i> -->
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="button-update"> Submit </button>
+                    </div>
+                </form>
+            </div>
+            
+          </main>
+           <!-- End of Main Body -->
+
+           <div class="right">
+               <div class="top">
+                   <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                   </button>
+                   <div class="theme-toggler">
+                    <span class="material-icons-sharp active"> light_mode </span>
+                    <span class="material-icons-sharp"> dark_mode </span>
+                   </div>
+                   <div class="profile">
+                       <div class="info">
+                           <p>Hey, <b> {{user | upper}} </b></p>
+                           <small class="text-muted">Employee</small>
+                       </div>
+                       <div class="profile-photo">
+                        <img src="./images/profile-1.jpg" alt="">
+                       </div>
+                   </div>
+               </div>   
+               
+               <!-- ----------------- BEGINNING OF FINAL RATINGS ------------------------->
+              
+           </div>
+    </div>
+
+    <!-- <script src="./admindashboard.js"></script> -->
+    <script src=" {% static "admin/admindashboard.js"%} "></script>
+
+</body>
+</html>

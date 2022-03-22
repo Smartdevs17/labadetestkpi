@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+{% extends "hrms/admin/component/base.html" %}
+
+
+{% block body_block %}
+
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+            <h1> Create New Unit </h1>
+            <div class="login-container">
+              <p class="title"> Unit Details </p>
+              <div class="separator"></div>
+              <p class="welcome-message"> Ensure to fill all fields </p>
+  
+              <form method="POST" class="login-form">
+                  {% csrf_token%}
+                  {{form.errors}}
+
+                  <div class="form-control">
+                      <!-- <input type="text" placeholder="Department Name "> -->
+                      {{form.unit_id}}
+                      <i class="fas fa-address-book"></i>
+                  </div>
+                      <div class="form-control">
+                      <!-- <input type="text" placeholder="Department Name "> -->
+                      {{form.head_of_unit}}
+                      <i class="fas fa-address-book"></i>
+                  </div>
+                  <div class="form-control">
+                    <!-- <input type="text" placeholder="Department Name "> -->
+                    {{form.unit_name}}
+                    <i class="fas fa-address-book"></i>
+                </div>
+                  <h3>Department ID</h3>
+                  <div class="form-control">
+                      <!-- <input type="text" placeholder="Department Name "> -->
+                      {{form.dept_id}}
+                  </div>
+               
+                  <div class="button-container">
+                    <button type="submit" class="button-update"> <a style="text-decoration: none;" href=" {% url "hrms:admin_setting"%} ">Cancel</a> </button>
+                      <button type="submit" class="button-update"> Create Unit </button>
+                  </div>
+              </form>
+          </div>
+          
+        </main>
+         <!-- End of Main Body -->
+  
+
+
+
+ {% endblock %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics</title>
+</head>
+<body>
+    
+    <div class="employee-quick-details">
+        <h2> New EmployeeS </h2>
+        <table>
+            <thead>
+                <tr>
+                    <th> Image </th>
+                    <th> First Name </th>
+                    <th> Last Name </th>
+                    <th> Rating </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+              {% for worker in workers %}
+                <tr>
+                  <td class="font-weight-medium">
+                    <img src="{{worker.thumb.url}}" class="profile-photo" alt="">
+                  </td>
+                  <td>
+                    {{worker.first_name}}
+                  </td>
+                  <td>
+                    {{worker.last_name}}
+                  </td>
+                  <td class="success">
+                        Excellent
+                  </td>
+                </tr>
+              {% endfor %}                   
+              </tbody>
+        </table>
+        <a href="#"> Show All </a>
+    </div>
+</body>
+</html>

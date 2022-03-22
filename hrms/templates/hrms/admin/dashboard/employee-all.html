@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="./managerdashboard.css"> -->
+    <link rel="stylesheet" href=" {% static "admin/managerdashboard.css"%} ">
+
+</head>
+<body>
+    <div class="container">
+
+        <!-- Beginning of Aside or Side Bar -->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    
+                    <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                 <a href="{% url 'hrms:admin_dashboard' %}" class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3> Dashboard </h3>
+                 </a>
+                 <a href="{% url 'hrms:employee_all' %}">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3> Employees </h3>
+                 </a>
+             
+                 <a href="{% url 'hrms:report_complaint' %}">
+                    <span class="material-icons-sharp"> summarize </span>
+                    <h3> Employee Complaint </h3>
+                 </a>
+                 
+                 <a href=" {% url "hrms:admin_setting"%} ">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3> Settings </h3>
+                 </a>
+                 <!-- <a href="{% url 'hrms:employment_new' %}">
+                    <span class="material-icons-sharp"> add </span>
+                    <h3> Add Employee </h3>
+                 </a> -->
+     
+                 <a href=" {% url "hrms:employee_logout" %} ">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a>
+            </div>
+        </aside>
+         <!-- End of Aside or Side Bar -->
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+              <h1> Employee </h1>
+
+              <div class="insights">
+
+                <!-- BEGINNING OF Quick Details -->
+                  <div class="company-analytics">
+                    <span class="material-icons-sharp"> stacked_line_chart </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3> Employee </h3>
+                            <h5> No of Registered Employees </h5>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" CY="38" R='36' ></circle>
+                            </svg>
+                            <div class="number">
+                                <!-- <p>100</p> -->
+                                {{reg_total}}
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted"> Total number </small>
+                  </div>
+
+                  <!-- END OF Quick details -->
+
+                  
+               
+
+                  <!-- END OF EMPLOYEE ANALYTICS -->
+                  <form action=" {% url "hrms:search"%} " method="get">
+                    <div class="searchfield">
+                        <input type="text" name="q" placeholder="Search" class="searchfield">
+                        <input type="submit" value="Submit">
+                    </div>
+
+                  </form>
+                  
+                <!-- BEGINNING OF PROJECT ANALYTICS -->
+              
+
+                  <!-- END OF PROJECT ANALYTICS -->
+              </div>
+
+              <div class="employee-quick-details">
+                  <h2> All Employee </h2>
+                  <table>
+                      <thead>
+                          <tr>
+                              <th style="padding: 15px;" > Employee ID </th>
+                              <th style="padding: 15px;" > First Name </th>
+                              <th style="padding: 15px;" > Last name </th>
+                              <th style="padding: 15px;" > Employee Type </th>
+                              <th style="padding: 15px;" > SBU ID </th>
+                              <th style="padding: 15px;" > Station </th>
+                              <th style="padding: 15px;" > Department</th>
+                              <th style="padding: 15px;" > Designation</th>
+                              <th style="padding: 15px;" > Grade Level</th>
+                              <th style="padding: 15px;" > Step</th>
+                              <th style="padding: 15px;" > Position</th>
+                              <th style="padding: 15px;" > Action</th>
+
+                              <th></th>
+
+                          </tr>
+                      </thead>
+                      <tbody>
+                        {% for worker in workers %}
+
+                          <tr>
+                              <td> {{worker.employ_id}} </td>
+                              <td> {{worker.employee.first_name}} </td>
+                              <td> {{worker.employee.last_name}}  </td>
+                              <td> {{worker.employee_type}} </td>
+                              <td> {{worker.sbu_id}} </td>
+                              <td> {{worker.station}} </td>
+                              <td> {{worker.department}} </td>
+                              <td> {{worker.designation}} </td>
+                              <td> {{worker.gradelevel}} </td>
+                              <td> {{worker.step}} </td>
+                              <td> {{worker.position.position}} </td>
+                              <td> <a style="text-decoration: none;" href=" {% url "hrms:employment_detail" pk=worker.employ_id%} ">View</a> </td>
+
+                          </tr>
+                          <!-- <tr>
+                            <td> Joshua Abanjo </td>
+                            <td> Hillary </td>
+                            <td> 202201 </td>
+                            <td> +2348767909876</td>
+                            <td class="warning" > On Leave </td>
+                            <td>Logistics</td>
+                        </tr>
+                        <tr>
+                            <td> Joshua Abanjo </td>
+                            <td> Hillary </td>
+                            <td> 202201 </td>
+                            <td> +2348767909876</td>
+                            <td class="warning"> On Leave </td>
+                            <td>Finance</td>
+                        </tr>
+                        <tr>
+                            <td> Angel ogbonna </td>
+                            <td> Hillary </td>
+                            <td> 202201 </td>
+                            <td> +2348767909876</td>
+                            <td class="success"> At work </td>
+                            <td>Security</td>
+                        </tr>
+                        <tr>
+                            <td> John doe </td>
+                            <td> Hillary </td>
+                            <td> 202201 </td>
+                            <td> +2348767909876</td>
+                            <td class="warning" > On Leave </td>
+                            <td>Analytics</td>
+                        </tr>
+                        <tr>
+                            <td> Joshua Abanjo </td>
+                            <td> Hillary </td>
+                            <td> 202201 </td>
+                            <td> +2348767909876</td>
+                            <td class="success"> At work </td>
+                            <td>Logistics</td>
+                        </tr> -->
+                        {% endfor %}                   
+
+                      </tbody>
+                  </table>
+              </div>
+          </main>
+           <!-- End of Main Body -->
+
+           <div class="right">
+               <div class="top">
+                   <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                   </button>
+                   <div class="theme-toggler">
+                    <span class="material-icons-sharp active"> light_mode </span>
+                    <span class="material-icons-sharp"> dark_mode </span>
+                   </div>
+                   <!-- <div class="profile">
+                       <div class="info">
+                           <p>Hey, <b>Anthony</b></p>
+                           <small class="text-muted">Admin</small>
+                       </div>
+                       <div class="profile-photo">
+                        <img src="./images/profile-1.jpg" alt="">
+                       </div>
+                   </div> -->
+                   <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>{{user.username | upper}}</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                     <img src="{{user.thumb.url}}" alt="">
+                    </div>
+                </div>
+               </div>
+
+           </div>
+    </div>
+
+    <!-- <script src="./admindashboard.js"></script> -->
+    <script src=" {% static "admin/admindashboard.js"%} "></script>
+
+</body>
+</html>

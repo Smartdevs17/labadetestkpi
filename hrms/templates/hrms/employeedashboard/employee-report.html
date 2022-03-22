@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Employee Report Dashboard</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="./managerdashboard.css"> -->
+    <link rel="stylesheet" href=" {% static "admin/managerdashboard.css"%} ">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Beginning of Aside or Side Bar -->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    
+                    <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                 <a href="#" class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3> Dashboard </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3> Members </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> speaker_group </span>
+                    <h3> Reports </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> insights </span>
+                    <h3> Assign Rating </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> question_answer </span>
+                    <h3> Messages </h3>
+                    <span class="message-count">26</span>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> inventory </span>
+                    <h3> Projects </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3> Settings </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a>
+            </div>
+        </aside>
+         <!-- End of Aside or Side Bar -->
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+              <h1> Reports </h1>
+
+              <div class="insights">
+
+                <!-- BEGINNING OF EMPLOYEE ANALYTICS -->
+                <div class="employee-analytics">
+                    <span class="material-icons-sharp"> bar_chart </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3> Projects </h3>
+                            <h5> No of Projects </h5>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" CY="38" R='36' ></circle>
+                            </svg>
+                            <div class="number">
+                                <p> {{skpd_count}} </p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted"> project count </small>
+                  </div>
+
+                  <!-- END OF EMPLOYEE ANALYTICS -->
+
+                  <!-- END OF Quick details -->
+
+                  
+               
+
+                  <!-- END OF EMPLOYEE ANALYTICS -->
+
+                  
+                <!-- BEGINNING OF PROJECT ANALYTICS -->
+              
+
+                  <!-- END OF PROJECT ANALYTICS -->
+              </div>
+
+              <div class="employee-quick-details">
+                <h2> Monthly KPI Reports </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th> S/N </th>
+                            <th> Name </th>
+                            <th> GL </th>
+                            <th> Position </th>
+                            <th> Supervisor </th>
+                            <!-- <th> HR Score </th> -->
+                            <th> Final Avg Score </th>
+                            <th> Station </th>
+                            <th> ED Comment </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <!-- {% for average in average_score %} -->
+
+                        <tr>
+                            <th> {{employee.id}} </th>
+                            <th> {{employee.skpd.employee}} </th>
+                            <th> {{employee.skpd.employee.grade_level.gradelevel}} </th>
+                            <th> {{employee.skpd.employee.position}} </th>
+                            <th> {{user}} </th>
+                            <!-- <th> {{employee.total_score}} </th> -->
+                            <th> {{employee.score}} </th>
+                            <th> {{employee.skpd.employee.station}} </th>
+                            <th> {{employee.remark}} </th>
+                            <th></th>
+                        </tr>
+                        <!-- <tr>
+                          <td> David adeleke </td>
+                          <td>MID34 Daily Delivery </td>
+                          <td> 202201 </td>
+                          <td class="warning"> Good </td>
+                      </tr>
+                      <tr>
+                          <td> Kenneth ato </td>
+                          <td>MID34 Daily Delivery </td>
+                          <td> 202201 </td>
+                          <td class="danger"> Needs Improvement </td>
+                      </tr>
+                      <tr>
+                          <td> Angel ogbonna </td>
+                          <td>MID34 Daily Delivery </td>
+                          <td> 202201 </td>
+                          <td class="success"> Excellent </td>
+                      </tr>
+                      <tr>
+                          <td> John doe </td>
+                          <td>MID34 Daily Delivery </td>
+                          <td> 202201 </td>
+                          <td class="success"> Excellent </td>
+                      </tr>
+                      <tr>
+                          <td> Hillary ken </td>
+                          <td>MID34 Daily Delivery </td>
+                          <td> 202201 </td>
+                          <td class="warning">  Good </td>
+                      </tr> -->
+                            <!-- {% endfor %} -->
+                    </tbody>
+                </table>
+            </div>
+          </main>
+           <!-- End of Main Body -->
+
+           <div class="right">
+               <div class="top">
+                   <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                   </button>
+                   <div class="theme-toggler">
+                    <span class="material-icons-sharp active"> light_mode </span>
+                    <span class="material-icons-sharp"> dark_mode </span>
+                   </div>
+                   <div class="profile">
+                       <div class="info">
+                           <p>Hey, <b>Anthony</b></p>
+                           <small class="text-muted">Manager</small>
+                       </div>
+                       <div class="profile-photo">
+                        <img src="./images/profile-1.jpg" alt="">
+                       </div>
+                   </div>
+               </div>
+
+           </div>
+    </div>
+
+    <!-- <script src="./admindashboard.js"></script> -->
+    <script src=" {% static "admin/admindashboard.js"%} "></script>
+</body>
+</html>

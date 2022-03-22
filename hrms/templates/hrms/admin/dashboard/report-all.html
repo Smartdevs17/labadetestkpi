@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Reports</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <link rel="stylesheet" href=" {% static "admin/assign-rating-table.css"%} ">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Beginning of Aside or Side Bar -->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    
+                    <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                 <a href="{% url 'hrms:admin_dashboard' %}" class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3> Dashboard </h3>
+                 </a>
+                 <a href="{% url 'hrms:employee_all' %}">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3> Employees </h3>
+                 </a>
+                 <!-- <a href=" {% url "hrms:employeetype_new"%}">
+                    <span class="material-icons-sharp"> speaker_group </span>
+                    <h3> Departments </h3>
+                 </a> -->
+                 <a href="#">
+                    <span class="material-icons-sharp"> insights </span>
+                    <h3> Analytics </h3>
+                 </a>
+
+                 <a href="#">
+                    <span class="material-icons-sharp"> question_answer </span>
+                    <h3> Leave </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> summarize </span>
+                    <h3> Employee Complaint </h3>
+                 </a>
+                 <a href=" {% url "hrms:admin_setting"%} ">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3> Settings </h3>
+                 </a>
+                 <!-- <a href="{% url 'hrms:employment_new' %}">
+                    <span class="material-icons-sharp"> add </span>
+                    <h3> Add Employee </h3>
+                 </a> -->
+     
+                 <a href=" {% url "hrms:admin_logout" %} ">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a>
+            </div>
+        </aside>
+         <!-- End of Aside or Side Bar -->
+
+         
+          <!-- Beginning of Main Body -->
+
+          <main>
+              <h1> Employee Complaint Report  </h1>
+
+              <div class="insights">
+
+                  <!-- END OF Quick details -->
+
+                  
+               
+
+                  <!-- END OF EMPLOYEE ANALYTICS -->
+
+                  
+                <!-- BEGINNING OF PROJECT ANALYTICS -->
+              
+
+                  <!-- END OF PROJECT ANALYTICS -->
+              </div>
+
+              <div class="employee-quick-details-assign-rating">
+                <h2> Table </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="padding: 25px;" > Employee name </th>
+                            <th style="padding: 25px;" > Approved </th>
+                            <th style="padding: 25px;" > Complaint </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for report in reports %}
+                        <tr>
+                            <td> {{report.employee}} </td>
+                            <br>
+                            <td> {{report.approved}} </td>
+                            <td > {{report.description}} </td>
+                        </tr>
+                        <tr>
+                          <td> David adeleke </td>
+                          <td>MID34 Daily Delivery </td>
+                          <td> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia quibusdam voluptatum, quia ad labore rem voluptatibus totam provident ipsum. Libero soluta hic eum voluptates, saepe quod optio iusto dicta inventore! </td>
+                          <td class="success"> Excellent </td>
+                          <td class="warning"> Good </td>
+                      </tr>
+                      <tr>
+                          <td> Kenneth ato </td>
+                          <td>MID34 Daily Delivery </td>
+                          <td> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia quibusdam voluptatum, quia ad labore rem voluptatibus totam provident ipsum. Libero soluta hic eum voluptates, saepe quod optio iusto dicta inventore! </td>
+                          <td class="success"> Excellent </td>
+                          <td class="warning"> Good </td>
+                      </tr>
+                      <tr>
+                        <td> John doe </td>
+                        <td>MID34 Daily Delivery </td>
+                        <td> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia quibusdam voluptatum, quia ad labore rem voluptatibus totam provident ipsum. Libero soluta hic eum voluptates, saepe quod optio iusto dicta inventore! </td>
+                        <td class="success"> Excellent </td>
+                        <td class="warning"> Good </td>
+                      </tr>
+                      <tr>
+                          <td> John doe </td>
+                          <td>MID34 Daily Delivery </td>
+                          <td> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia quibusdam voluptatum, quia ad labore rem voluptatibus totam provident ipsum. Libero soluta hic eum voluptates, saepe quod optio iusto dicta inventore! </td>
+                          <td class="success"> Excellent </td>
+                          <td class="warning"> Good </td>
+                      </tr>
+                      <tr>
+                          <td> Hillary ken </td>
+                          <td>MID34 Daily Delivery </td>
+                          <td> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia quibusdam voluptatum, quia ad labore rem voluptatibus totam provident ipsum. Libero soluta hic eum voluptates, saepe quod optio iusto dicta inventore! </td>
+                          <td class="success"> Excellent </td>
+                          <td class="warning"> Good </td>
+                      </tr>
+
+                      {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+          </main>
+           <!-- End of Main Body -->
+
+        
+    </div>
+
+    <!-- <script src="./admindashboard.js"></script> -->
+    <script src=" {% static "admin/admindashboard.js"%} "></script>
+
+</body>
+</html>

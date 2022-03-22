@@ -1,0 +1,194 @@
+{% extends 'hrms/layout.html' %}
+{% load static %}
+{% block title %} Dashboard | ITSC-HRMS {% endblock title %}
+      <!--  MAIN BODY START HERE -->
+          {% block content %}
+
+               <!-- Beginning of Main Body -->
+               <script src="./admindashboard.js"></script>
+               <main>
+                <h1> Dashboard </h1>
+  
+                <div class="date">
+                    <input type="date">
+                </div>
+  
+                <div class="insights">
+  
+                  <!-- BEGINNING OF ADMIN COUNT -->
+                    <div class="company-analytics">
+                      <span class="material-icons-sharp"> stacked_line_chart </span>
+                      <div class="middle">
+                          <div class="left">
+                              <h3> Administrators </h3>
+                              <h5> </h5>
+                          </div>
+                          <div class="progress">
+                              <svg>
+                                  <circle cx="38" CY="38" R='36' ></circle>
+                              </svg>
+                              <div class="number">
+                                  <p>{{admin_count}}</p>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+  
+                    <!-- END OF ADMIN COUNT -->
+  
+                    
+                  <!-- BEGINNING OF EMPLOYEE COUNT -->
+                  <div class="employee-analytics">
+                      <span class="material-icons-sharp"> bar_chart </span>
+                      <div class="middle">
+                          <div class="left">
+                              <h3> Employee </h3>
+                              <h5></h5>
+                          </div>
+                          <div class="progress">
+                              <svg>
+                                  <circle cx="38" CY="38" R='36' ></circle>
+                              </svg>
+                              <div class="number">
+                                  <p>{{emp_total}}</p>
+                              </div>
+                          </div>
+                      </div>
+                      <small class="text-muted"> Employee's Total Count </small>
+                    </div>
+  
+                    <!-- END OF EMPLOYEE COUNT -->
+  
+                    
+                  <!-- BEGINNING OF DEPARTMENT COUNT -->
+                  <div class="project-analytics">
+                      <span class="material-icons-sharp">  inventory </span>
+                      <div class="middle">
+                          <div class="left">
+                              <h3> Department </h3>
+                              <h5></h5>
+                          </div>
+                          <div class="progress">
+                              <svg>
+                                  <circle cx="38" CY="38" R='36' ></circle>
+                              </svg>
+                              <div class="number">
+                                  <p>{{dept_total}}</p>
+                              </div>
+                          </div>
+                      </div>
+                      <small class="text-muted"> Available Departments</small>
+                    </div>
+  
+                    <!-- END OF DEPARTMENT COUNT -->
+                </div>
+  
+                <div class="employee-quick-details">
+                    <h2> New Employees </h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> Image </th>
+                                <th> First Name </th>
+                                <th> Last Name </th>
+                                <th> Mobile </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+  
+                          {% for worker in workers %}
+                            <tr>
+                              <td class="font-weight-medium">
+                                <img src="{{worker.thumb.url}}" class="profile-photo" alt="">
+                              </td>
+                              <td>
+                                {{worker.first_name}}
+                              </td>
+                              <td>
+                                {{worker.last_name}}
+                              </td>
+                              <td>
+                                {{worker.mobile}} &emsp;<span><a href="{% url 'hrms:employee_view' pk=worker.id %}" class="btn btn-sm btn-info">View</a></span>
+                              </td>
+                            </tr>
+                          {% endfor %}                   
+                          </tbody>
+                    </table>
+                    <a href="#"> Show All </a>
+                </div>
+            </main>
+             <!-- End of Main Body -->
+             <div class="right">
+              <div class="department-analytics">
+               <h2> Recruitment / Payroll </h2>
+               <div class=" item resource">
+                <div class="icon">
+                    <span class="material-icons-sharp">language</span>
+                   </div>
+                   <div class="right">
+                       <div class="info">
+                           <h3><a href="{% url 'hrms:recruitmentall' %}">RECRUITMENT</a></h3>
+                       </div>
+                   </div>
+               </div>
+               <div class=" item finance">
+                <div class="icon">
+                    <span class="material-icons-sharp"> price_change</span>
+                   </div>
+                   <div class="right">
+                       <div class="info">
+                           <h3><a href="{% url 'hrms:payroll' %}">PAYROLL</a></h3>
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+              <!-- ----------------- END OF PAYROLL/RECRUITMENT ------------------------->
+              <div class="department-analytics">
+                  <h2> Department Analytics</h2>
+                  <div class=" item logistics">
+                      <div class="icon">
+                       <span class="material-icons-sharp"> sync_alt </span>
+                      </div>
+                      <div class="right">
+                          <div class="info">
+                              <h3> LOGISTICS DEPARTMENT</h3>
+                              <small class="text-muted"> Last 24 Hours </small>
+                          </div>
+                          <h5 class="success"> +39% </h5>
+                      </div>
+                  </div>
+                  <div class=" item resource">
+                   <div class="icon">
+                       <span class="material-icons-sharp">language</span>
+                      </div>
+                      <div class="right">
+                          <div class="info">
+                              <h3> RESOURCE DEPARTMENT</h3>
+                              <small class="text-muted"> Last 24 Hours </small>
+                          </div>
+                          <h5 class="success"> +30% </h5>
+                      </div>
+                  </div>
+                  <div class=" item finance">
+                   <div class="icon">
+                       <span class="material-icons-sharp"> price_change</span>
+                      </div>
+                      <div class="right">
+                          <div class="info">
+                              <h3> FINANCE DEPARTMENT</h3>
+                              <small class="text-muted"> Last 24 Hours </small>
+                          </div>
+                          <h5 class="success"> +12% </h5>
+                      </div>
+                  </div>
+                  <div class="item add-project">
+                       <div>
+                           <span class="material-icons-sharp"> add </span>
+                           <h3> Add Project </h3>
+                       </div>
+                  </div>
+              </div>
+          </div>
+        {% endblock content %}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% extends "hrms/manager/base.html"%}
+
+{% load static %}
+
+{% block body_block %}
+
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+            <h1> Dashboard </h1>
+
+        
+
+            <div class="employee-quick-details">
+                <h2> Employees of {{manager.dept_name}} Department </h2>
+                <table style="padding: 15px;">
+                    <thead >
+                        <tr >
+                            <th style="padding: 20px; margin: 20px"> Employee name </th>
+                            <th style="padding: 20px; margin: 20px"> Employee Type </th>
+                            <th style="padding: 20px; margin: 20px"> Station </th>
+                            <th style="padding: 20px; margin: 20px"> Unit </th>
+                            <th style="padding: 20px; margin: 20px"> Position</th>
+                            <th style="padding: 20px; margin: 20px"> Staff Key Performance Deliverable </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for staff in staffs %}
+                        <tr>
+                            <td> {{staff.employee.first_name}} {{staff.employee.last_name}} </td>
+                            <td> {{staff.employee_type.employeetype}} </td>
+                            <td> {{staff.station.station_name}} </td>
+                            <td> {{staff.unit.unit_name}} </td>
+                            <td> {{staff.position.position}} </td>
+                            <td> <h3><a href=" {% url "hrms:mkpd_all" pk=staff.employee.id %}">View</a></h3> </td>
+
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                </table>
+                <a href="#"> Show All </a>
+            </div>
+        </main>
+         <!-- End of Main Body -->
+
+         <div class="right">
+             <div class="top">
+                 <button id="menu-btn">
+                  <span class="material-icons-sharp">menu</span>
+                 </button>
+                 <div class="theme-toggler">
+                  <span class="material-icons-sharp active"> light_mode </span>
+                  <span class="material-icons-sharp"> dark_mode </span>
+                 </div>
+                 <div class="profile">
+                     <div class="info">
+                         <!-- <p>Hey, <b>Anthony</b></p> -->
+                         <p>Hey, <b> {{manager.head_of_dept.first_name}} </b></p>
+                         <small class="text-muted">Manager</small>
+                     </div>
+                     <div class="profile-photo">
+                      <img src=" {{manager.head_of_dept.thumb.url}} " alt="">
+
+                     </div>
+                 </div>
+             </div>
+
+            
+
+             
+
+
+         </div>
+
+
+
+
+{% endblock %}

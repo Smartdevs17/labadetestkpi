@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+{% extends "hrms/employeedashboard/base.html"%}
+
+
+
+
+
+{% block body_block %}
+
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+            <h1> Deliverables </h1>
+            <div class="login-container">
+              <p class="title"> Available Tasks </p>
+              <div class="separator"></div>
+              <p class="welcome-message"> Complete Task </p>
+  
+              <form method="post" class="login-form">
+                  {{form.errors}}
+                  {% csrf_token%}
+                  <div class="form-control">
+                      <!-- <input type="text" placeholder="Project name"> -->
+                      {{form.period}}
+                      {% comment %} <i class="fas fa-project-diagram"></i> {% endcomment %}
+                  </div>
+                  <label for="subject"> Select Week </label>
+                  <div class="form-control">
+                      <!-- <input type="text" placeholder="Employee Name "> -->
+                      {{form.week}}
+                      <!-- <i class="fas fa-user"></i> -->
+                  </div>
+              
+                  <label for="subject"> Remarks </label>
+                  {{form.description}}
+                  <!-- <textarea  id="subject" na/me="subject" placeholder="description" style="height:200px" style="padding: 20px;" class="description"></textarea> -->
+                  <label for="subject"> Staff Approved </label>
+                  <div class="form-control">
+                      <!-- <input type="text" placeholder="Employee Name "> -->
+                      {{form.approved}}
+                      <!-- <i class="fas fa-user"></i> -->
+                  </div>
+                  <div class="button-container">
+                      <button type="submit" class="button-update"> Submit </button>
+                  </div>
+              </form>
+          </div>
+          
+        </main>
+         <!-- End of Main Body -->
+
+
+
+         {% endblock%}

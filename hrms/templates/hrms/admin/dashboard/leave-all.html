@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <link rel="stylesheet" href="./managerdashboard.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Beginning of Aside or Side Bar -->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    
+                    <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                 <a href="{% url 'hrms:dashboard' %}" class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3> Dashboard </h3>
+                 </a>
+                 <a href="{% url 'hrms:employee_all' %}">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3> Employees </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> speaker_group </span>
+                    <h3> Departments </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> insights </span>
+                    <h3> Analytics </h3>
+                 </a>
+                 <a href="{% url 'hrms:leave_new' %}">
+                    <span class="material-icons-sharp"> question_answer </span>
+                    <h3> Leave </h3>
+                 </a>
+                 <a href="{% url 'hrms:attendance_new' %}">
+                    <span class="material-icons-sharp"> summarize </span>
+                    <h3> Reports </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3> Settings </h3>
+                 </a>
+                 <a href="{% url 'hrms:employee_new' %}">
+                    <span class="material-icons-sharp"> add </span>
+                    <h3> Add Employee </h3>
+                 </a>
+                 <a href="{% url 'hrms:employee_new' %}">
+                    <span class="material-icons-sharp"> add </span>
+                    <h3> Add Department </h3>
+                 </a>
+                 <a href="#">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a>
+            </div>
+        </aside>
+         <!-- End of Aside or Side Bar -->
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+              <h1> Employee </h1>
+              <h5> This Feature is Currently Disabled </h5>
+
+              <div class="insights">
+
+                <!-- BEGINNING OF Quick Details -->
+                  <div class="company-analytics">
+                    <span class="material-icons-sharp"> stacked_line_chart </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3> Employee </h3>
+                            <h5> No of Employees on Leave </h5>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" CY="38" R='36' ></circle>
+                            </svg>
+                            <div class="number">
+                                <p>15</p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <!-- END OF Quick details -->
+
+                  
+               
+
+                  <!-- END OF EMPLOYEE ANALYTICS -->
+
+                  
+                <!-- BEGINNING OF PROJECT ANALYTICS -->
+              
+
+                  <!-- END OF PROJECT ANALYTICS -->
+              </div>
+
+              <div class="employee-quick-details">
+                  <h2> All Employee </h2>
+                  <table>
+                      <thead>
+                          <tr>
+                              <th> Employee Name </th>
+                              <th> Employee Last name </th>
+                              <th> Employee ID </th>
+                              <th> Mobile Number </th>
+                              <th> Employee Status </th>
+                              <th> Department</th>
+                              <th></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td> Joshua Abanjo </td>
+                              <td> Hillary </td>
+                              <td> 202201 </td>
+                              <td> +2348767909876</td>
+                              <td class="warning" > On Leave </td>
+                              <td>Logistics</td>
+                          </tr>
+                          <tr>
+                            <td> Joshua Abanjo </td>
+                            <td> Hillary </td>
+                            <td> 202201 </td>
+                            <td> +2348767909876</td>
+                            <td class="warning" > On Leave </td>
+                            <td>Logistics</td>
+                        </tr>
+                        <tr>
+                            <td> Joshua Abanjo </td>
+                            <td> Hillary </td>
+                            <td> 202201 </td>
+                            <td> +2348767909876</td>
+                            <td class="warning"> On Leave </td>
+                            <td>Finance</td>
+                        </tr>
+                        <tr>
+                            <td> Angel ogbonna </td>
+                            <td> Hillary </td>
+                            <td> 202201 </td>
+                            <td> +2348767909876</td>
+                            <td class="warning" > On Leave </td>
+                            <td>Security</td>
+                        </tr>
+                        <tr>
+                            <td> John doe </td>
+                            <td> Hillary </td>
+                            <td> 202201 </td>
+                            <td> +2348767909876</td>
+                            <td class="warning" > On Leave </td>
+                            <td>Analytics</td>
+                        </tr>
+                        <tr>
+                            <td> Joshua Abanjo </td>
+                            <td> Hillary </td>
+                            <td> 202201 </td>
+                            <td> +2348767909876</td>
+                            <td class="warning" > On Leave </td>
+                            <td>Logistics</td>
+                        </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </main>
+           <!-- End of Main Body -->
+
+           <div class="right">
+               <div class="top">
+                   <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                   </button>
+                   <div class="theme-toggler">
+                    <span class="material-icons-sharp active"> light_mode </span>
+                    <span class="material-icons-sharp"> dark_mode </span>
+                   </div>
+                   <div class="profile">
+                       <div class="info">
+                           <p>Hey, <b>Anthony</b></p>
+                           <small class="text-muted">Admin</small>
+                       </div>
+                       <div class="profile-photo">
+                        <img src="./images/profile-1.jpg" alt="">
+                       </div>
+                   </div>
+               </div>
+
+           </div>
+    </div>
+
+    <script src="./admindashboard.js"></script>
+</body>
+</html>

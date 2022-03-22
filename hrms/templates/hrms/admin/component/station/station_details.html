@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+{% extends "hrms/admin/component/comp-base.html" %}
+
+{% block body_block %}
+
+
+
+<main>
+    <h1> Select Station to Change </h1>
+
+    <div class="button-container">
+        <button class="button-update"> <a href="{% url 'hrms:station_all' %}" > Return </a> </button>
+    </div>
+
+    <div class="insights">
+ 
+
+                <!-- BEGINNING OF CURRENT PROJECT/TASKS -->
+        <div class="employee-analytics">
+            <div class="project-name">
+                <h2> {{station.station_id}} </h2>
+            </div>
+              <div class="middle">
+                  <div style="margin: 10px;" class="left">
+                      <h1> {{station.station_manager}} </h1>
+                  </div>
+              
+              </div>
+              <div class="middle">
+                <div style="margin: 10px;" class="left">
+                    <h1> {{station.station_name}} </h1>
+                </div>
+            
+            </div>
+            <div class="middle">
+                <div style="margin: 10px;" class="left">
+                    <h1> {{station.station_email_address}} </h1>
+                </div>
+            
+            </div>
+            <div class="middle">
+                <div style="margin: 10px;" class="left">
+                    <h1> {{station.station_location}} </h1>
+                </div>
+            
+            </div>
+            <div class="middle">
+                <div style="margin: 10px;" class="left">
+                    <h1> {{station.station_address}} </h1>
+                </div>
+            
+            </div>
+              <h3 style="float: right; "> <a style="color: red;" href=" {% url "hrms:station_delete" pk=station.station_id %}">Delete</a> </h3>
+              <h3 > <a style="color: blue;" href=" {% url "hrms:station_update" pk=station.station_id %}">Update</a> </h3>
+            </div>
+    
+
+
+
+
+
+
+          <!-- END OF CURRENT PROJECT/TASKS - -->
+     
+
+         <!-- END OF CURRENT PROJECT/TASKS - -->
+        
+    </div>
+</main>
+ <!-- End of Main Body -->
+
+
+
+
+
+
+{% endblock %}

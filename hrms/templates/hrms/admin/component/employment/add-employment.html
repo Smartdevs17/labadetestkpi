@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+{% extends "hrms/admin/component/base.html" %}
+
+
+{% block body_block %}
+
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+            <h1> Add New Employee</h1>
+            <div class="login-container">
+              <p class="title"> Employee Details </p>
+              <div class="separator"></div>
+              <p class="welcome-message"> Ensure to fill all fields </p>
+  
+              <form method="POST" class="login-form">
+                  {% csrf_token%}
+                  {{form.errors}}
+
+                  <div class="form-control">
+                      {{form.employ_id}}
+                  </div>
+                  <h3>Select Employee</h3>
+                  <div class="form-control">
+                      {{form.employee}}
+                  </div>
+         
+          
+                  <h3>Date Of Employment</h3>
+                  <div class="form-control">
+                      {{form.doe}}
+                  </div>       
+                  <h3>EmployeeType </h3>
+                  <div class="form-control">
+                      {{form.employee_type}}
+                  </div>
+     
+                  <h3>SUB Directorate </h3>
+                  <div class="form-control">
+                      {{form.sbu_id}}
+                  </div>
+                     
+            
+                     
+                  <h3>Department</h3>
+                  <div class="form-control">
+                      <!-- <input type="text" placeholder="Department Name "> -->
+                      {{form.department}}
+                  </div>
+                     
+                  <h3>Unit</h3>
+                  <div class="form-control">
+                      <!-- <input type="text" placeholder="Department Name "> -->
+                      {{form.unit}}
+                  </div>
+                  
+                  <h3>Step</h3>
+                  <div class="form-control">
+                      {{form.step}}
+                  </div>
+
+                  <h3>Grade Level</h3>
+                  <div class="form-control">
+                      {{form.gradelevel}}
+                  </div>
+
+                  <h3>Designation</h3>
+                  <div class="form-control">
+                      {{form.designation}}
+                  </div>
+
+                  <h3>Position</h3>
+                  <div class="form-control">
+                      {{form.position}}
+                  </div>
+            
+                  <h3>Station</h3>
+                  <div class="form-control">
+                      {{form.station}}
+                  </div> 
+                           
+              
+
+                  <div class="button-container">
+                    <button type="submit" class="button-update"> <a style="text-decoration: none;" href=" {% url "hrms:employment_all"%} ">Cancel</a> </button>
+                      <button type="submit" class="button-update"> Create Employee </button>
+                  </div>  
+
+                
+                     
+               
+            
+              </form>
+          </div>
+          
+        </main>
+         <!-- End of Main Body -->
+
+
+
+
+ {% endblock %}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% extends "hrms/employeedashboard/todo-base.html"%}
+
+
+
+{% block body_block %}
+
+
+
+
+  <!-- Beginning of Main Body -->
+
+  <main>
+    <h1> Todo </h1>
+
+    <div class="insights">
+
+      {% for project in projects %}
+
+      <!-- BEGINNING OF CURRENT PROJECT/TASKS -->
+        <div class="employee-analytics">
+        <div class="project-name">
+            <h3> Project Period {{project.date}} </h3>
+        </div>
+          <div class="middle">
+              <div class="left">
+                  <!-- <h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fugiat cumque dolorum, totam, quo voluptatum maxime officia natus perferendis nam provident vel unde dolore officiis iusto, itaque error? Qui, quae. </h4> -->
+                  <h4>{{project.kpd.description}} </h4>
+              </div>
+              <div class="progress">
+                  <svg>
+                      <circle cx="38" CY="38" R='36' ></circle>
+                  </svg>
+                  <div class="number">
+                      <p> {{project.weight }} </p>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <!-- END OF CURRENT PROJECT/TASKS - -->
+
+        
+         <!-- END OF CURRENT PROJECT/TASKS - -->
+        
+    </div>
+</main>
+ <!-- End of Main Body -->
+{% endfor%}
+ <div class="right">
+     <div class="top">
+         <button id="menu-btn">
+          <span class="material-icons-sharp">menu</span>
+         </button>
+         <div class="theme-toggler">
+          <span class="material-icons-sharp active"> light_mode </span>
+          <span class="material-icons-sharp"> dark_mode </span>
+         </div>
+         <div class="profile">
+             <div class="info">
+              <p>Hey, <b> {{employee.first_name}} </b></p>
+              <small class="text-muted">Employee</small>
+             </div>
+             <!-- <div class="profile-photo">
+              <img src="./images/profile-1.jpg" alt="">
+             </div> -->
+             <div class="profile-photo">
+              <!-- <img src="./images/profile-1.jpg" alt=""> -->
+
+              {% if employee.thumb %}
+                  <img src="{{employee.thumb.url}} " alt="">
+               {% endif %}
+             </div>
+         </div>
+     </div>   
+
+
+     <div class="button-container">
+      <button class="button-update"> <a href=" {% url "hrms:complete_task"%} "> Complete Task </a> </button>
+  </div>
+  
+ </div>
+
+ {% endblock %}

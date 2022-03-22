@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+
+     <!-- Material Icon -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <link rel="stylesheet" href="./employeedashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Beginning of Aside or Side Bar -->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    
+                    <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                 <a href="{% url 'hrms:admin_dashboard' %}" class="active">
+                    <span class="material-icons-sharp"> dashboard </span>
+                    <h3> Dashboard </h3>
+                 </a>
+                 <a href="{% url 'hrms:employee_all' %}">
+                    <span class="material-icons-sharp"> person_outline </span>
+                    <h3> Employees </h3>
+                 </a>
+                 <!-- <a href=" {% url "hrms:employeetype_new"%}">
+                    <span class="material-icons-sharp"> speaker_group </span>
+                    <h3> Departments </h3>
+                 </a> -->
+                 <a href="#">
+                    <span class="material-icons-sharp"> insights </span>
+                    <h3> Analytics </h3>
+                 </a>
+
+                 <a href="{% url 'hrms:leave_new' %}">
+                    <span class="material-icons-sharp"> question_answer </span>
+                    <h3> Leave </h3>
+                 </a>
+                 <a href="{% url 'hrms:attendance_new' %}">
+                    <span class="material-icons-sharp"> summarize </span>
+                    <h3> Reports </h3>
+                 </a>
+                 <a href=" {% url "hrms:admin_setting"%} ">
+                    <span class="material-icons-sharp"> settings </span>
+                    <h3> Settings </h3>
+                 </a>
+                 <!-- <a href="{% url 'hrms:employment_new' %}">
+                    <span class="material-icons-sharp"> add </span>
+                    <h3> Add Employee </h3>
+                 </a> -->
+     
+                 <a href=" {% url "hrms:logout" %} ">
+                    <span class="material-icons-sharp"> logout </span>
+                    <h3> Logout </h3>
+                 </a>
+            </div>
+        </aside>
+         <!-- End of Aside or Side Bar -->
+
+          <!-- Beginning of Main Body -->
+
+          <main>
+              <h1> Create New Employee </h1>
+              <div class="login-container">
+                <p class="title"> Employee Details </p>
+                <div class="separator"></div>
+                <p class="welcome-message"> Ensure to fill all mandatory fields  </p>
+    
+                <form class="login-form">
+                    <div class="form-control">
+                        <input type="text" placeholder="First name">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" placeholder="Last name ">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" placeholder="Username ">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-control">
+                        <input type="email" placeholder="Email ">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="form-control">
+                        <input type="tel" placeholder="Mobile number ">
+                        <i class="fas fa-mobile"></i>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" placeholder="Address ">
+                        <i class="fas fa-address-book"></i>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" placeholder="Qualifications ">
+                        <i class="fas fa-book"></i>
+                    </div>
+    
+                    <div class="button-container">
+                        <button class="button-update"> Add Employee </button>
+                    </div>
+                </form>
+            </div>
+            
+          </main>
+           <!-- End of Main Body -->
+
+           <div class="right">
+               <div class="top">
+                   <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                   </button>
+                   <div class="theme-toggler">
+                    <span class="material-icons-sharp active"> light_mode </span>
+                    <span class="material-icons-sharp"> dark_mode </span>
+                   </div>
+                   <div class="profile">
+                       <div class="info">
+                           <p>Hey, <b>John</b></p>
+                           <small class="text-muted">Employee</small>
+                       </div>
+                       <div class="profile-photo">
+                        <img src="./images/profile-1.jpg" alt="">
+                       </div>
+                   </div>
+               </div>   
+               
+               <!-- ----------------- BEGINNING OF FINAL RATINGS ------------------------->
+              
+           </div>
+    </div>
+
+    <script src="./admindashboard.js"></script>
+</body>
+</html>
