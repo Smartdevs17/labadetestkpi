@@ -40,7 +40,7 @@ class EmployeeTypeForm(forms.ModelForm):
         fields = "__all__"
         widgets={
             'employeetype_id': forms.TextInput(attrs={"placeholder":"Employee Type ID"}),
-            'employeetype':forms.Select(),
+            'employeetype':forms.TextInput(),
         }
 
 class DirectorateForm(forms.ModelForm):

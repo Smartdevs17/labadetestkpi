@@ -49,15 +49,8 @@
                         <span class="material-icons-sharp"> settings </span>
                         <h3> Report </h3>
                      </a>
-                     <a href=" {% url "hrms:assign_rating"%} ">
-                        <span class="material-icons-sharp"> insights </span>
-                        <h3> Employee Ratings </h3>
-                     </a>
-                     <a href=" {% url "hrms:manager_message"%} ">
-                        <span class="material-icons-sharp"> question_answer </span>
-                        <h3> Messages </h3>
-                        <span class="message-count"> {{staff_total}} </span>
-                     </a>
+                  
+                  
     
                      <a href=" {% url "hrms:skpd_new"%} ">
                         <span class="material-icons-sharp"> inventory </span>
@@ -94,7 +87,7 @@
                         <!-- <input type="text" placeholder="Employee ID "> -->
                         {{form.remark}}
                     </div>
-                    <h3>I Have Evaluated The Performance Of The Named Staff and I Find His/Her Work to be </h3>
+                    <h3>I Have Evaluated The Performance Of  {{staff.employee.employee.first_name}} {{staff.employee.employee.last_name}} and I Find His/Her Work to be </h3>
                     <div class="form-control">
                         <!-- <input type="text" placeholder="Employee ID "> -->
                         {{form.comment}}

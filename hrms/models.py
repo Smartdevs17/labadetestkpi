@@ -63,9 +63,9 @@ class Employee(models.Model):
 
 
 class EmployeeType(models.Model):
-    EMPLOYEETYPE = (('Permanent Staff', 'Permanent Staff'), ('Contract Staff', 'Contract Staff'),('NYSC', 'NYSC'),('SIWES', 'SIWES'),('Freelance', 'Freelance'))
+    # EMPLOYEETYPE = (('Permanent Staff', 'Permanent Staff'), ('Contract Staff', 'Contract Staff'),('NYSC', 'NYSC'),('SIWES', 'SIWES'),('Freelance', 'Freelance'))
     employeetype_id = models.CharField(max_length=70, primary_key=True,default="emptype"+str(random.randrange(100,999,1)))
-    employeetype = models.CharField(choices=EMPLOYEETYPE, max_length=15 )
+    employeetype = models.CharField(max_length=15 )
 
     def __str__(self):
         return self.employeetype

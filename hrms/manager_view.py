@@ -270,7 +270,7 @@ class Report_View(LoginRequiredMixin,ListView):
             # print(ratings)
             context["kpi_count"] = KPI_Evalutation.objects.all().count()
             kpis = KPIScorePenalty.objects.all()
-            print(kpis[0])
+            # print(kpis[0])
             # leaders = User.objects.filter(~Q(submissions=None)).filter(submissions__status="approved").annotate(total=Sum("submissions__task__points")).order_by("-total")
             context["employees"] = leaders
             return context
@@ -690,13 +690,13 @@ class Staff_Kpd_All_Detail(LoginRequiredMixin,ListView):
 #         context['staffs'] = MKPD.objects.filter(employee__department=admin.department).annotate(total=Count("staff",distinct=True)).order_by('-employ_id')
 #         return context
   
-class Staff_Kpd_Detail(DetailView):
+class Staff_Kpd_Detail(LoginRequiredMixin,DetailView):
     queryset = KPI_Evalutation .objects.all()
     template_name = 'hrms/manager/evaluation/evaluation-details.html'
     context_object_name = 'report'
     login_url = 'hrms:manager_login'
     
-class Staff_Kpd_New(CreateView):
+class Staff_Kpd_New(LoginRequiredMixin,CreateView):
     model = KPI_Evalutation 
     template_name = 'hrms/manager/evaluation/add-evaluation.html'
     form_class = KPI_EvalutationForm
@@ -710,14 +710,14 @@ class Staff_Kpd_New(CreateView):
         # kwargs.update({"user":self.request.user})
         return kwargs
 
-class Staff_Kpd_Update(UpdateView):
+class Staff_Kpd_Update(LoginRequiredMixin,UpdateView):
     model = KPI_Evalutation 
     template_name = 'hrms/manager/evaluation/add-evaluation.html'
     form_class = KPI_EvalutationForm
     login_url = 'hrms:manager_login'
     success_url = reverse_lazy('hrms:eva_all')
 
-class Staff_Kpd_Delete(DeleteView):
+class Staff_Kpd_Delete(LoginRequiredMixin,DeleteView):
     template_name = 'hrms/manager/evaluation/evaluation-delete.html'
     model = KPI_Evalutation 
     login_url = 'hrms:manager_login'
@@ -735,7 +735,7 @@ class Staff_Kpd_New(FormView):
     
     
 #Employmentviews
-class EvalutationView(ListView):
+class EvalutationView(LoginRequiredMixin,ListView):
     template_name = 'hrms/manager/evaluation/all-evaluation.html'
     login_url = 'hrms:manager_login'
     model = KPI_Evalutation 
