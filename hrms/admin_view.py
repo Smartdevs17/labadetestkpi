@@ -97,7 +97,7 @@ class Admin_Setting(LoginRequiredMixin,SuperuserRequiredMixin,ListView):
         context['bank_total'] = Bank.objects.all().count() 
         context['design_total'] = Designation.objects.all().count()
         context['employeetype_total'] = EmployeeType.objects.all().count()
-        context['kpiscr_total'] = KPIScoreRange.objects.all().count()
+        context['kpisr_total'] = KPIScoreRange.objects.all().count()
         context['kpisp_total'] = KPIScorePenalty.objects.all().count()
         context['kpd_total'] = KPD.objects.all().count()
         return context

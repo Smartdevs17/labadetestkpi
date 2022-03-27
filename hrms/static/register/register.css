@@ -18,6 +18,14 @@
     justify-content: center;
     align-items: center;
   }
+ 
+  .btn{
+    float: left;
+    background-image: linear-gradient(to right, #8b33c5, #15a0e1);
+    padding:15px;
+    font-size:20px;
+    color:#fff;
+  }
   
   section.side {
     background: url(./images/bk.png) no-repeat;
@@ -131,6 +139,8 @@
   button.submit:hover {
     opacity: 0.9;
   }
+
+  
   
   /* ----  Responsiveness   ----  */
   @media (max-width: 780px) {

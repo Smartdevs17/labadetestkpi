@@ -8,51 +8,43 @@
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <title>Login page</title>
-    <!-- <link rel="stylesheet" href="./login.css"> -->
-    <link rel="stylesheet" href=" {% static "register/login.css"%} ">
-      <!-- <link rel="stylesheet" href="./register.css"> -->
-      <link rel="stylesheet" href=" {% static "admin/managerdashboard.css"%} ">
+
+    <!-- <link rel="stylesheet" href="./adminlogin.css"> -->
+    <link rel="stylesheet" href=" {% static "admin/adminlogin.css"%} ">
+
 </head>
 <body>
     <section class="side">
-        <!-- <img src="./images/img.svg" alt=""> -->
-        <img src=" {% static "register/images/img.svg"%} " alt="">
+        <!-- <img src="../images/img.svg" alt=""> -->
+        <img src=" {% static "admin/images/img.svg"%} " alt="">
 
     </section>
 
     <section class="main">
         <div class="login-container">
-            <p class="title">Employee Login</p>
+            <p class="title">Welcome Admin</p>
             <div class="separator"></div>
             <p class="welcome-message">Please, provide login credential to proceed and have access to your dashboard</p>
 
             <form method="POST" class="login-form">
-                {%csrf_token%}
                 {{form.errors}}
+                {%csrf_token%}
                 <div class="form-control">
                     <!-- <input type="text" placeholder="Username"> -->
                     {{form.username}}
                     <i class="fas fa-user"></i>
                 </div>
-              
+               
                 <div class="form-control">
                     <!-- <input type="password" placeholder="Password"> -->
                     {{form.password}}
                     <i class="fas fa-lock"></i>
                 </div>
 
-     
-                <div class="button-container">
-                    <button style="background-image: linear-gradient(to right, #8b33c5, #15a0e1);" type="submit" class="button-update">Login</button>
-                    <button class="signup"><a style="text-decoration: none; color:#fff;" href=" {% url "hrms:index"%} ">Home</a></button>
-                    <!-- <button class="signup"><a style="text-decoration: none;" href=" {% url "hrms:employee_reg"%} ">Sigup</a></button> -->
-                </div>
-                <div class="button-container">
-                    
-                <!-- <a href="#">forgot password ?</a> -->
-                <a style="text-decoration: none; font-size:15px;" href=" {% url "hrms:employee_reg"%} ">Don't have an account?Register</a>
-                
-                </div>
+                <button class="submit">Login</button>
+                <button class="signup"><a style="text-decoration: none;" href=" {% url "hrms:index"%} ">Home</a></button>
+
+                <a href="#">forgot password ?</a>
             </form>
         </div>
     </section>

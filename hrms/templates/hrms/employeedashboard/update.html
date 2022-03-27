@@ -4,142 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- Material Icon -->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="./employeedashboard.css">
+    <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <title>Register page</title>
 
     <!-- <link rel="stylesheet" href="./register.css"> -->
-    <link rel="stylesheet" href=" {% static "admin/managerdashboard.css"%} ">
+    <link rel="stylesheet" href=" {% static "register/register.css"%} ">
 
 </head>
 <body>
-    <div class="container">
+    <section class="side">
+        <!-- <img src="./images/img.svg" alt=""> -->
+        <img src=" {% static "register/images/img.svg"%} " alt="">
 
-        <!-- Beginning of Aside or Side Bar -->
-        <aside>
-            <div class="top">
-                <div class="logo">
-                    
-                    <h2> Labade <br/> <span class="danger" > Communications </span></h2>
+    </section>
+
+    <section class="main">
+        <div class="login-container">
+            <p class="title">Welcome ! </p>
+            <div class="separator"></div>
+            <p class="welcome-message">Please, provide the required details to proceed and update your account an account</p>
+
+            <form method="POST" class="login-form" enctype="multipart/form-data" >
+                {{form.errors}}
+                {%csrf_token%}
+                <div class="form-control">
+                    <!-- <input type="text" placeholder="Username"> -->
+                    {{form.first_name}}
+                    <i class="fas fa-user"></i>
                 </div>
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">close </span>
+                <div class="form-control">
+                    <!-- <input type="text" placeholder="Username"> -->
+                    {{form.middle_name}}
+                    <i class="fas fa-user"></i>
                 </div>
-            </div>
+                <div class="form-control">
+                    <!-- <input type="text" placeholder="Username"> -->
+                    {{form.last_name}}
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="form-control">
+                    <!-- <input type="text" placeholder="Username"> -->
+                    {{form.mobile}}
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="form-control">
+                    <!-- <input type="text" placeholder="Username"> -->
+                    {{form.emergency}}
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="form-control">
+                    <!-- <input type="text" placeholder="Username"> -->
+                    {{form.gender}}
+                </div>
+                <h3>Date of Birth</h3>
+                <div class="form-control">
+                    <!-- <input type="text" placeholder="Username"> -->
+                    {{form.dob}}
+                </div>
+                <h3>Select Profile Image</h3>
+                <div class="form-control">
+                    <!-- <input type="text" placeholder="Username"> -->
+                    {{form.thumb}}
+                </div>
+                <h3>Select Language</h3>
+                <div class="form-control">
+                    <!-- <input type="text" placeholder="Username"> -->
+                    {{form.language}}
+                </div>
+                <div class="form-control">
+                    <!-- <input type="text" placeholder="Username"> -->
+                    {{form.bank}}
+                </div>
+                <div class="form-control">
+                    <!-- <input type="text" placeholder="Username"> -->
+                    {{form.account_no}}
+                </div>
+                <div  class="" >
+                    <button style=" float: left; background-image: linear-gradient(to right, #8b33c5, #15a0e1); padding:15px; font-size:20px; color:#fff; " class=""> <a style="text-decoration: none;" href=" {% url "hrms:employee_dashboard"%} ">Cancel</a> </button>
+                    <button class="" style=" float: right; background-image: linear-gradient(to right, #8b33c5, #15a0e1); padding:15px; font-size:20px; color:#fff; "  type="submit">Update Changes</button>
+                </div>
+        
 
-            <div class="sidebar">
-                 <a href="#" class="active">
-                    <span class="material-icons-sharp"> dashboard </span>
-                    <h3> Dashboard </h3>
-                 </a>
-                 {% if employee %}
-                 <a href=" {% url "hrms:employee_update" pk=employee.id %}">
-                    <span class="material-icons-sharp"> person_outline </span>
-                    <h3> Update Profile </h3>
-                 </a>
-            
-                 {% else %}
-                    <a href=" {% url "hrms:employee_new"%}">
-                        <span class="material-icons-sharp"> person_outline </span>
-                        <h3> Create Profile </h3>
-                    </a>
-                 {% endif %}
-              
-       
-    
-                 <a href=" {% url "hrms:complete_task"%} ">
-                    <span class="material-icons-sharp"> inventory </span>
-                    <h3> Activites/Task Undertaken </h3>
-                 </a> 
-     
-                 <a href=" {% url "hrms:employee_logout"%} ">
-                    <span class="material-icons-sharp"> logout </span>
-                    <h3> Logout </h3>
-                 </a>
-            </div>
-        </aside>
-         <!-- End of Aside or Side Bar -->
+                <!-- <div class="button-container">
+                    <button type="submit" class="button-update"> <a style="text-decoration: none;" href=" {% url "hrms:admin_setting"%} ">Cancel</a> </button>
+                      <button type="submit" class="button-update"> Create Designation </button>
+                  </div> -->
 
-          <!-- Beginning of Main Body -->
-
-          <main>
-              <h1> Profile </h1>
-              <div class="login-container">
-                <p class="title"> Profile settings </p>
-                <div class="separator"></div>
-                <p class="welcome-message"> Make changes or update details </p>
-    
-                <form method="POST" class="login-form" enctype="multipart/form-data" >
-                    {{form.errors}}
-                    {%csrf_token%}
-                    <div class="form-control">
-                        <!-- <input type="text" placeholder="Username"> -->
-                        {{form.first_name}}
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="form-control">
-                        <!-- <input type="text" placeholder="Username"> -->
-                        {{form.middle_name}}
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="form-control">
-                        <!-- <input type="text" placeholder="Username"> -->
-                        {{form.last_name}}
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="form-control">
-                        <!-- <input type="text" placeholder="Username"> -->
-                        {{form.mobile}}
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="form-control">
-                        <!-- <input type="text" placeholder="Username"> -->
-                        {{form.emergency}}
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="form-control">
-                        <!-- <input type="text" placeholder="Username"> -->
-                        {{form.gender}}
-                    </div>
-                    <h3>Date of Birth</h3>
-                    <div class="form-control">
-                        <!-- <input type="text" placeholder="Username"> -->
-                        {{form.dob}}
-                    </div>
-                    <h3>Select Profile Image</h3>
-                    <div class="form-control">
-                        <!-- <input type="text" placeholder="Username"> -->
-                        {{form.thumb}}
-                    </div>
-                    <h3>Select Language</h3>
-                    <div class="form-control">
-                        <!-- <input type="text" placeholder="Username"> -->
-                        {{form.language}}
-                    </div>
-                    <div class="form-control">
-                        <!-- <input type="text" placeholder="Username"> -->
-                        {{form.bank}}
-                    </div>
-                    <div class="form-control">
-                        <!-- <input type="text" placeholder="Username"> -->
-                        {{form.account_no}}
-                    </div>
-
-                    <div class="button-container">
-                        <button class="button-cancel"> Cancel </button>
-                        <button class="button-update"> Update changes </button>
-                    </div>
-            </div>
-            
-          </main>
-           <!-- End of Main Body -->
-
-         
-    </div>
+            </form>
+        </div>
+    </section>
     
 </body>
 </html>
