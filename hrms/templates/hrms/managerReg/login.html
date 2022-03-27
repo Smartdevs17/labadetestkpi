@@ -10,11 +10,15 @@
     <title>Login page</title>
     <!-- <link rel="stylesheet" href="./login.css"> -->
     <link rel="stylesheet" href=" {% static "register/login.css"%} ">
+    
+    <!-- <link rel="stylesheet" href="./register.css"> -->
+    <link rel="stylesheet" href=" {% static "admin/managerdashboard.css"%} ">
 </head>
 <body>
     <section class="side">
         <!-- <img src="./images/img.svg" alt=""> -->
         <img src=" {% static "register/images/img.svg"%} " alt="">
+
 
     </section>
 
@@ -38,10 +42,12 @@
                     {{form.password}}
                     <i class="fas fa-lock"></i>
                 </div>
+                <a href="#" style="margin-bottom: 20px;">forgot password ?</a>
 
-                <button type="submit" class="submit">Login</button>
-                <a href="#">forgot password ?</a>
-                <button class="signup"><a style="text-decoration: none;" href=" {% url "hrms:index"%} ">Home</a></button>
+                <div class="button-container">
+                    <button type="submit" class="button-update">Login</button>
+                    <button class="button-update"><a style="text-decoration: none;" href=" {% url "hrms:index"%} ">Home</a></button>
+                </div>
 
             </form>
         </div>
