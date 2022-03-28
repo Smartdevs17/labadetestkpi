@@ -95,11 +95,17 @@
                
 
                   <!-- END OF EMPLOYEE ANALYTICS -->
-                  <form action=" {% url "hrms:search"%} " method="get">
-                    <div class="searchfield">
-                        <input type="text" name="q" placeholder="Search" class="searchfield">
-                        <input type="submit" value="Submit">
-                    </div>
+                  <form action=" {% url "hrms:search"%} " method="get" class="login-form">
+                    <div class="button-container" style="margin: 20px;   display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;">
+                        <div class="form-control">
+                            <input type="text" placeholder="Search" class="input" style="padding: 20px; width: 100%; margin-right: 90px; border-radius: 10px;">
+                        </div></button>
+                          <button type="submit" class="button-update" style="border-radius: 10px; margin-right: auto">Search </button>
+                      </div>
+
 
                   </form>
                   

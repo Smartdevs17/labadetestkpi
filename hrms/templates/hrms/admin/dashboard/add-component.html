@@ -41,13 +41,22 @@
                     <span class="material-icons-sharp"> person_outline </span>
                     <h3> Employees </h3>
                  </a>
-           
-                  <a href=" {% url "hrms:admin_setting"%} ">
+             
+                 <a href="{% url 'hrms:report_complaint' %}">
+                    <span class="material-icons-sharp"> summarize </span>
+                    <h3> Employee Complaint </h3>
+                 </a>
+                 
+                 <a href=" {% url "hrms:admin_setting"%} ">
                     <span class="material-icons-sharp"> settings </span>
                     <h3> Settings </h3>
                  </a>
+                 <!-- <a href="{% url 'hrms:employment_new' %}">
+                    <span class="material-icons-sharp"> add </span>
+                    <h3> Add Employee </h3>
+                 </a> -->
      
-                 <a href=" {% url "hrms:admin_logout" %} ">
+                 <a href=" {% url "hrms:employee_logout" %} ">
                     <span class="material-icons-sharp"> logout </span>
                     <h3> Logout </h3>
                  </a>
