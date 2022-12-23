@@ -63,3 +63,4 @@ wcwidth==0.2.5
 whitenoise==6.0.0
 wrapt==1.13.3
 zipp==3.7.0
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
