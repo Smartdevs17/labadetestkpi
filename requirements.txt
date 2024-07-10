@@ -62,4 +62,4 @@ virtualenv-clone==0.5.7
 wcwidth==0.2.5
 whitenoise==6.0.0
 wrapt==1.13.3
-zipp==3.7.0
+zipp==3.19.1
